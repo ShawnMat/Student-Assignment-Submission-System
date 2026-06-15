@@ -1,0 +1,16 @@
+body{
+    font-family: 'Playfair Display', serif !important;
+    /* background-color: # !important; */
+    background: linear-gradient(120deg,#B5FCCD ,#7AC6D2,#7AC6D2,#B5FCCD);
+}
+
+.navbar{
+    background-color: #3D90D7;
+    border-bottom: 1px solid #3A59D1;
+    color: white;
+    text-align: center;
+}
+.hero{
+    height: 90vh;
+    align-content: center;
+}

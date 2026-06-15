@@ -1,0 +1,24 @@
+
+.signUpCard{
+    /* align-items: center; */
+    /* display: flex !important; */
+    /* align-content: center !important; */
+    width:650px;
+    height: 550px !important;
+}
+.submit{
+    height:40px;
+}
+
+.name{
+    width: 250px !important;
+}
+.uname{
+    width: 250px !important;
+}
+.pwd{
+    width: 250px !important;
+}
+/* .card-body{
+    align-content: center;
+} */

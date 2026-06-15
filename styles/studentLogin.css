@@ -1,0 +1,33 @@
+
+.loginImage{
+    height: 90vh;
+    align-content:  center ;
+}
+#sideLoginImage{
+    width: 650px;
+    height: 500px;
+    
+}
+.loginCard{
+    /* align-items: center; */
+    /* display: flex !important; */
+    /* align-content: center !important; */
+    width: 550px;
+    height: 450px !important;
+}
+.submit{
+    height:40px;
+}
+
+.name{
+    width: 250px !important;
+}
+.uname{
+    width: 250px !important;
+}
+.pwd{
+    width: 250px !important;
+}
+/* .card-body{
+    align-content: center;
+} */
