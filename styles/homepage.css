@@ -27,3 +27,7 @@ body{
     align-items: center !important;
     align-content: center !important;
 } */
+
+.about{
+    height: 90vh;
+}
