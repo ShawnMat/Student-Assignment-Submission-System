@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+
+    <link rel="stylesheet" href="/styles/studentSampleSignup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <!-- <div class="container-fluid d-flex justify-content-between">
+        <div class="loginImage">
+            <img id="sideLoginImage" src="/assets/images/loginImage.jpg">
+        </div>
+        <div class="card signUpCard m-auto ">
+            <div class="card-body">
+                <div class="card-title text-center mb-3 fs-3">STUDENT REGISTER</div>
+                <div class="card-text">
+                    <div class="form">
+                        <div class="d-flex justify-content-around">
+                            <div class="firstName mt-4">
+                                <p class="form-label">First Name</p>
+                                <input type="text" class="name form-control" id="fname">
+                            </div>
+                            <div class="middleName mt-4">
+                                <p class="form-label">Middle Name</p>
+                                <input type="text" class="name form-control" id="mname">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <div class="lastName mt-4">
+                                <p class="form-label">Last Name</p>
+                                <input type="text" class=" name form-control" id="lname">
+                            </div>
+                            <label class="form-label mt-4">Gender</label>
+                            <div class="gender d-flex mt-5 ">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="male">
+                                    <label class="form-check-label" for="male">
+                                        Male
+                                    </label>    
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="male">
+                                    <label class="form-check-label" for="male">
+                                        Female
+                                    </label>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <div class="username mt-4">
+                                <p class="form-label">Username</p>
+                                <input type="text" class="uname form-control" id="username">
+                            </div>
+                            <div class="password mt-4">
+                                <p class="form-label">Password</p>
+                                <input type="text" class="pwd form-control" id="password">
+                            </div>
+                        </div>
+                       
+                        <div class="submitButton text-center mt-5 mx-4">
+                            <button class="submit w-100 rounded-2">Sign Up</button>
+                        </div>
+                        <div class="newStudent d-flex mt-2 justify-content-between">
+                            <p>Already have an account?</p>
+                            <a href="/pages/studentSampleLogin.html" class="text-decoration-none">SignIn here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sideSignupImage col-7 bg-dark-subtle">
+            </div>
+            <div class="signup-cont col-5 d-flex justify-content-center bg-light">
+                <div class="card d-none personalDetailsCard rounded-5 shadow-lg m-auto" id="cards">
+                    <div class="card-body">
+                        <div class="card-title text-center mb-3 fs-3">Personal Information</div>
+                        <div class="card-text">
+                            <div class="form">
+                                <div class="firstName mt-3 p-3">
+                                    <p class="form-label">First Name</p>
+                                    <input type="text" class="form-control" id="fname">
+                                </div>
+                                <div class="middleName px-3">
+                                    <p class="form-label">Middle Name (Optional)</p>
+                                    <input type="text" class="form-control"  id="mname">
+                                    <!-- <p><a href="" class="text-decoration-none">Forget Password?</a></p> -->
+                                </div>
+                                <div class="lastName p-3">
+                                    <p class="form-label">Last Name</p>
+                                    <input type="text" class="form-control" id="lname">
+                                </div>
+                                <label class="form-label ps-3">Gender</label>
+                                <div class="gender d-flex ms-3 gap-3 ">
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" name="gender" id="male">
+                                        <label class="form-check-label" for="male">
+                                            Male
+                                        </label>    
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender" id="male">
+                                        <label class="form-check-label" for="male">
+                                            Female
+                                        </label>    
+                                    </div>
+                                </div>
+                                <div class="DOB p-3">
+                                    <p class="form-label">Date of Birth</p>
+                                    <input type="date" class="form-control" id="dob">
+                                </div>
+                                <div class="continueButton text-center mt-2">
+                                    <button class="continue w-75 border-0 rounded-2 bg-primary text-white">Continue</button>
+                                </div>
+                                <div class="newStudent d-flex justify-content-center gap-3  mt-2 w-100 ">
+                                    <p>Already have an account?</p>
+                                    <a href="/pages/studentSampleSignup.html" class="text-decoration-none">Login here</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Academic Details (Hide the below card by default) -->
+                <div class="card d-none academicDetails rounded-5 shadow-lg m-auto " id="cards">
+                    <div class="card-body">
+                        <div class="card-title text-center mb-3 fs-3">Academic Information</div>
+                        <div class="card-text">
+                            <div class="form">
+                                <div class="college mt-3 p-3">
+                                    <p class="form-label">College Name</p>
+                                    <input type="text" class="form-control" id="collegename">
+                                </div>
+                                <div class="department pb-3 px-3">
+                                    <p class="form-label">Department Name</p>
+                                    <input type="text" class="form-control" id="departmentname">
+                                </div>
+                                <div class="course pb-3 px-3">
+                                    <p class="form-label">Course Name</p>
+                                    <input type="text" class="form-control"  id="coursename">
+                                    <!-- <p><a href="" class="text-decoration-none">Forget Password?</a></p> -->
+                                </div>
+                                <div class="year px-3">
+                                    <p class="form-label">Year</p>
+                                    <input type="number" class="form-control" id="yearnumber">
+                                </div>
+                                <div class="collegeEmail p-3">
+                                    <p class="form-label">Email ID (College Email ID required)</p>
+                                    <input type="text" class="form-control" id="lname">
+                                </div>
+                                <div class="backNcontinueButton d-flex justify-content-center gap-4">
+                                    <div class="backButton text-center mt-2">
+                                        <button id="backBtn" class="back border-0 rounded-2 bg-primary text-white">Back</button>
+                                    </div>
+                                    <div class="continueButton text-center mt-2">
+                                        <button id="continueBtn" class="continue border-0 rounded-2 bg-primary text-white">Continue</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Credentails Generation (hide the below card also as default) -->
+                 <div class="card loginCard rounded-5 shadow-lg m-auto ">
+                    <div class="card-body">
+                        <div class="card-title text-center mb-3 fs-3">Credentails Generation</div>
+                        <div class="card-text">
+                            <div class="form">
+                                <div class="username mt-3 p-3">
+                                    <p class="form-label">Username</p>
+                                    <input type="text" class="form-control" id="username">
+                                </div>
+                                <div class="password pb-3 px-3">
+                                    <p class="form-label">Password</p>
+                                    <input type="password" class="form-control" id="password">
+                                </div>
+                                <div class="confirmPassword px-3">
+                                    <p class="form-label">Confirm Password</p>
+                                    <input type="password" class="form-control" id="cpassword">
+                                </div>
+                                <div class="submitButton text-center mt-5">
+                                    <button class="submit w-75 border-0 rounded-2 bg-primary text-white">Register</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

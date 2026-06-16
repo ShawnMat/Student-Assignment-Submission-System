@@ -1,0 +1,32 @@
+.sideSignupImage{
+    height: 100vh;
+}
+#cards{
+    /* align-items: center; */
+    /* display: flex !important; */
+    /* align-content: center !important; */
+    width: 400px !important;
+    height: 600px !important;
+}
+.continue{
+    height: 35px;
+}
+
+#backBtn{
+    width: 100px;
+    height: 35px;
+}
+#continueBtn{
+    width: 100px;
+    height: 35px;
+}
+.loginCard{
+    /* align-items: center; */
+    /* display: flex !important; */
+    /* align-content: center !important; */
+    width: 400px !important;
+    height: 450px !important;
+}
+.submit{
+    height: 35px;
+}

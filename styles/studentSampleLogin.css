@@ -1,0 +1,13 @@
+.sideLoginImage{
+    height: 100vh ;
+}
+.loginCard{
+    /* align-items: center; */
+    /* display: flex !important; */
+    /* align-content: center !important; */
+    width: 400px !important;
+    height: 450px !important;
+}
+.submit{
+    height: 35px;
+}
