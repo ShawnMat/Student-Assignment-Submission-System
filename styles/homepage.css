@@ -1,7 +1,7 @@
 body{
     font-family: 'Playfair Display', serif !important;
     /* background-color: # !important; */
-    background: linear-gradient(120deg,#B5FCCD ,#7AC6D2,#7AC6D2,#B5FCCD);
+    /* background: linear-gradient(120deg,#B5FCCD ,#7AC6D2,#7AC6D2,#B5FCCD); */
 }
 
 .navbar{
@@ -14,3 +14,16 @@ body{
     height: 90vh;
     align-content: center;
 }
+.heroText{
+    align-content: center;
+}
+#hero-image{
+    width: 450px;
+    /* height: 250px; */
+}
+/* #getStartedBtn{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    align-content: center !important;
+} */
