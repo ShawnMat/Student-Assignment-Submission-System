@@ -1,0 +1,35 @@
+{
+    "students": [
+        {
+            "Firstname":"Shawn",
+            "Middlename":"Mathew",
+            "Lastname":"Daniel",
+            "Gender":"Male",
+            "DateofBirth":"19-07-2005",
+            "College":"Sri Krishna Arts and Science College",
+            "Department":"Computer Application",
+            "Course":"Bsc. Computer Science and Application",
+            "Year": "3",
+            "CollegeEmailID":"shawnmathew23051@skasc.ac.in",
+            "Username":"Shawn051",
+            "Password":"Shawn@123"
+        }
+    ],
+    "trainers": [
+        {
+            "name": "Abdul Faiz",
+            "emailID": "abdulfaiz260311@skasc.ac.in",
+            "department":"Computer Application",
+            "Course":"Bsc. Computer Science and Application",
+            "Subjects":["RDBMS","C++","SDLC"]
+        },
+        {
+            "name": "Sivakumar",
+            "emailID": "shivakumar190519@skasc.ac.in",
+            "department":"AIML",
+            "Course":"Bsc. Artificial Intelligence with Data Science",
+            "Subjects":["Maths","Data Science","Python"]
+        }
+    ],
+    "assignments":[]
+}
