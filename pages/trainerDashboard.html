@@ -24,9 +24,9 @@
                         <i class="bi bi-microsoft p-1"></i>
                         <a href="" class="sidedbarBtns text-decoration-none text-black fs-5">Dashboard</a>
                     </button>
-                    <button id="coursesBtn" class=" btn sidebarBtns d-flex gap-4">
+                    <button id="assignmentBtn" class=" btn sidebarBtns d-flex gap-4">
                         <i class="bi bi-file-text p1"></i>
-                        <a href="" class="sidebarBtnds text-decoration-none text-black fs-5">Courses</a>
+                        <a href="" class="sidebarBtnds text-decoration-none text-black fs-5">Assignments</a>
                     </button>
                     <button id="filterBtn" class="btn sidebarBtns d-flex gap-4">
                         <i class="bi bi-funnel p-1"></i>
@@ -122,16 +122,23 @@
                     <button class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <label class="">Assignment ID</label>
+                    <label >Assignment ID</label>
                     <input type="text" class="form-control" id="assignmentID">
-                    <label class="">Assignment Name</label>
+                    <label >Assignment Name</label>
                     <input type="text" class="form-control" id="assignmentName">
-                    <label class="">Assignemnt Type</label>
+                    <label >Assignemnt Type</label>
                     <input type="text" class="form-control" id="assignmentType">
-                    <label class="">Due Date</label>
+                    <label >Assignemnt Description</label>
+                    <input type="area" class="form-control" id="assignmentDesc">
+                    <label >Due Date</label>
                     <input type="date" class="form-control" id="dueDate">
+                    <label >Assign to which Course</label>
+                    <input type="text" class="form-control" id="assignToCourse">
+                    <label >Assign to which Year</label>
+                    <input type="number" class="form-control" id="assignToYear">
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer d-flex justify-content-between">
+                    <button id="clearValuesBtn">Clear All</button>
                     <button id="createAssignmentBtn">Create</button>
                 </div>
             </div>
