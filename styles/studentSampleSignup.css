@@ -20,6 +20,10 @@
     width: 100px;
     height: 35px;
 }
+#submitRegBtn{
+    width: 100px;
+    height: 35px;
+}
 .loginCard{
     /* align-items: center; */
     /* display: flex !important; */
@@ -27,6 +31,14 @@
     width: 400px !important;
     height: 450px !important;
 }
-.submit{
-    height: 35px;
+
+#personalDetailsCard{
+    display: block;
 }
+#academicDetails{
+    display: none;
+}
+#loginCard{
+    display: none;
+}
+
