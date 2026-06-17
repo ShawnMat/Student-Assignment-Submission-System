@@ -102,6 +102,8 @@
         "C++",
         "SDLC"
       ],
+      "Username":"Abdul_Faiz101",
+      "Password":"Abdul@123",
       "id": "OuZYqaDsVn4"
     },
     {
@@ -114,9 +116,22 @@
         "Data Science",
         "Python"
       ],
+      "Username":"Sivakumar150",
+      "Password":"Sivakumar@123",
       "id": "AofnKijcVXI"
     }
   ],
-  "assignments": [],
+  "assignments": [
+    {
+      "ASSIGNMENT_ID": "A1011",
+      "ASSIGNMENT_NAME": "Build Landing Page",
+      "ASSIGNMENT_TYPE": "Practical",
+      "ASSIGNMENT_DESC": "Build using the tech stack (HTML,CSS,JS,JQUERY) and Complete Validation also",
+      "DUE_DATE": "2026-06-18",
+      "TO_COURSE": "BSc. AIML",
+      "TO_YEAR": "2",
+      "id": "5MLHu53PbJI"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
