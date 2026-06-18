@@ -4,6 +4,8 @@ $('.workArea').show()
 // $('.workArea').show()
 $('.classArea').hide()
 
+const currAssignmentID = null
+
 const loggedInUser = JSON.parse(localStorage.getItem('loginUser'))
 console.log(loggedInUser);
 
@@ -107,7 +109,7 @@ function renderAssignments(VALUES){
                                                             <div class="leftSide">
                                                                 <button data-bs-toggle="modal" data-bs-target="#editAssignmentModal" class="border-0"><i class="bi bi-pencil-square"></i></button>
                                                                                     <button onclick="deleteAssignment('${assignment.id}')" class="border-0"><i class="bi bi-trash"></i></button>
-                                                                                    <button data-bs-toggle="modal" data-bs-target="#evaluateAssignmentModal" class="border-0"><i class="bi bi-card-checklist"></i></i></button>
+                                                                                    <button onclick="evaluateAssignment('${assignment.id}')" data-bs-toggle="modal" data-bs-target="#evaluateAssignmentModal" class="border-0"><i class="bi bi-card-checklist"></i></i></button>
                                                             </div>
                                                             <div class="rightSide d-flex gap-3">
                                                                 <p class="">Marks: ${assignment.MARKS}</p>
