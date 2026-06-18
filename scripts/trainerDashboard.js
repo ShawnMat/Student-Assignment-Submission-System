@@ -7,14 +7,22 @@ $('.classArea').hide()
 const loggedInUser = JSON.parse(localStorage.getItem('loginUser'))
 console.log(loggedInUser);
 
+const TODAY_DATE = getCreatedDate()
+console.log(TODAY_DATE.getDate());
 async function addAssignment(){
+    
     const ASSIGNMENT_ID = $('#assignmentID').val().trim()
     const ASSIGNMENT_NAME = $('#assignmentName').val().trim()
     const ASSIGNMENT_TYPE = $('#assignmentType').val().trim()
     const ASSIGNMENT_DESC = $('#assignmentDesc').val().trim()
     const DUE_DATE = $('#dueDate').val().trim()
+    const SUBMITTED_DATE = 'Not Submitted'
+    const EVALUATED_DATE = 'Not Evaluated'
     const TO_COURSE = $('#assignToCourse').val().trim()
     const TO_YEAR = $('#assignToYear').val().trim()
+    const STATUS = "Pending"
+    const MARKS = 0;
+    const GRADE = "F";
     const TRAINER_ID = loggedInUser.id
     // validation
 
@@ -23,7 +31,7 @@ async function addAssignment(){
     }
     else{
         const assignmentDetails = {
-            ASSIGNMENT_ID,ASSIGNMENT_NAME,ASSIGNMENT_TYPE,ASSIGNMENT_DESC,DUE_DATE,TO_COURSE,TO_YEAR,TRAINER_ID
+            ASSIGNMENT_ID,ASSIGNMENT_NAME,ASSIGNMENT_TYPE,ASSIGNMENT_DESC,DUE_DATE,TO_COURSE,TO_YEAR,TRAINER_ID,SUBMITTED_DATE,EVALUATED_DATE,STATUS,MARKS,GRADE
         }
         await fetch(`${API}/assignments`, {
             method: "POST",
@@ -55,6 +63,7 @@ async function getAssignments(){
     console.log(VALUES);
     
     renderAssignments(VALUES)
+    counters(VALUES)
 }
 
 function renderAssignments(VALUES){
@@ -62,56 +71,63 @@ function renderAssignments(VALUES){
     VALUES.forEach(assignment => {
         $('.card-cont').append(`<div class="card shawdow-lg col-6">
                                                         <div class="card-title pt-2 ps-2">
-                                                            <h4>${assignment.ASSIGNMENT_NAME}</h4>
+                                                            <div class="d-flex justify-content-between pe-2">
+                                                                <h4>${assignment.ASSIGNMENT_NAME}</h4>
+                                                                <div>${assignment.STATUS}</div>
+                                                            </div>
                                                             <div class="assignment_meta_data d-flex justify-content-between pe-3">
                                                                 <div class="id_type ">
                                                                     <p class="m-0">Assignment ID: ${assignment.ASSIGNMENT_ID}</p>
                                                                     <p>Assignment Type: ${assignment.ASSIGNMENT_TYPE}</p>
                                                                 </div>
-                                                                <div class="due_date d-flex gap-1">
-                                                                    <p>Due on: </p>
-                                                                    <p>${assignment.DUE_DATE}</p>
+                                                                <div class="due_date ">
+                                                                <p class="m-0">Due on: ${assignment.DUE_DATE}</p>
+                                                                <p class="m-0">Submitted on: ${assignment.SUBMITTED_DATE}</p>
+                                                                <p>Evaluated on: ${assignment.EVALUATED_DATE}</p>
                                                                 </div>
                                                             </div>
                                                             <div class="course_meta_data d-flex justify-content-between pe-3">
-                                                                <div class="id_type d-flex gap-2">
-                                                                    <p>Course:</p>
-                                                                    <p>${assignment.TO_COURSE}</p>
+                                                                <div class="id_type">
+                                                                    <p></p>
+                                                                    <p>Course: ${assignment.TO_COURSE}</p>
                                                                 </div>
-                                                                <div class="due_date d-flex gap-1">
-                                                                    <p>Year: </p>
-                                                                    <p>${assignment.TO_YEAR}</p>
+                                                                <div class="due_date">
+                                                                    <p></p>
+                                                                    <p>Year: ${assignment.TO_YEAR}</p>
                                                                 </div>
                                                             </div>
         
                                                         </div>
-                                                        <div class="card-body d-flex gap-1 ps-2 pt-0">
-                                                            <p> Description: </p>
-                                                            <p>${assignment.ASSIGNMENT_DESC}</p>
+                                                        <div class="card-body ps-2 pt-0">
+                                                            <p>Description: ${assignment.ASSIGNMENT_DESC}</p>
                                                         </div>
-                                                        <div class="card-footer ps-2">
-                                                            <button class="border-0"><i class="bi bi-pencil-square"></i></button>
-                                                            <button class="border-0"><i class="bi bi-trash"></i></button>
-                                                            <button class="border-0"><i class="bi bi-eye"></i></button>
+                                                        <div class="card-footer d-flex justify-content-between ps-2">
+                                                            <div class="leftSide">
+                                                                <button class="border-0"><i class="bi bi-pencil-square"></i></button>
+                                                                                    <button class="border-0"><i class="bi bi-trash"></i></button>
+                                                                                    <button class="border-0"><i class="bi bi-card-checklist"></i></i></button>
+                                                            </div>
+                                                            <div class="rightSide d-flex gap-3">
+                                                                <p class="">Marks: ${assignment.MARKS}</p>
+                                                                <p class="">Grade: ${assignment.GRADE}</p>
+                                                            </div>
                                                         </div>
                                                     </div>`)
         
     });
 }
 
-// $(#dashboardBtn).click(()=>{
-    // $('.workArea').hide()
-    // $('.classArea').hide()
-    // $('.workArea').show()
-    // $('.classArea').show()
-// })
-// $(#assignmentBtn).click(()=>{
-    // $('.workArea').hide()
-    // $('.classArea').hide()
-    // $('.workArea').show()
-    // $('.classArea').show()
-// })
+function getCreatedDate(){
+    const now = new Date()
+    return now;
 
+}
+function counters(VALUES){
+    if(VALUES.forEach(tasks=>tasks.STATUS == "Completed")){
+        $(#completedCount).append()
+    }   
+    
+}
 $('#createAssignmentBtn').click(()=> addAssignment())
 
 getAssignments()
