@@ -1,5 +1,5 @@
 const API = 'http://localhost:3000'
-$('.submit').click(async function (username,password) {
+$('.submit').click(async function () {
     try{
         const username = document.getElementById('username').value
         const password = document.getElementById('password').value 
@@ -11,8 +11,11 @@ $('.submit').click(async function (username,password) {
             // console.log(users.Username);
             // console.log(users.Password);
             
-            if(users.Username === username && users.Password === password){
-                localStorage.setItem("Username"= username)
+            if(users.USERNAME === username && users.PASSWORD === password){
+                // localStorage.setItem("Username"= username)
+                localStorage.setItem("isLoggedIn", "true");
+                localStorage.setItem("studentId", user.id);
+                localStorage.setItem("username", user.USERNAME);
                 console.log("Success!!");
                 window.location.replace("/pages/studentSampleDashboard.html")
             }

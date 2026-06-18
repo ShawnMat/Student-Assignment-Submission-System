@@ -1,5 +1,7 @@
 const API = 'http://localhost:3000'
 
+$('#academicDetails').hide();
+$('#loginCard').hide();
 
 async function personalDetails(){
     const FIRST_NAME = $('#fname').val().trim()
@@ -20,7 +22,7 @@ async function personalDetails(){
             FIRST_NAME,MIDDLE_NAME,LAST_NAME,GENDER,DATE_OF_BIRTH
         }
     
-        await fetch(`${API}/students`, {
+        const RESPONSE = await fetch(`${API}/students`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -28,14 +30,20 @@ async function personalDetails(){
                 body: JSON.stringify(studentPersonalDetails)
         });
         
-        const RESPONSE = await fetch(`${API}/students`)
-        const VALUES = await RESPONSE.json()
-        const length = VALUES.length
-        console.log(VALUES);
-        console.log(length);
+
+        const NEW_STUDENT = await RESPONSE.json();
+
+        const STUDENT_ID = NEW_STUDENT.id;
+
+        localStorage.setItem("studentId", STUDENT_ID);
+        // const RESPONSE = await fetch(`${API}/students`)
+        // const VALUES = await RESPONSE.json()
+        // const length = VALUES.length
+        // console.log(VALUES);
+        // console.log(length);
         
-        const ID = VALUES.find(user=>user.id = length-1)
-        console.log(ID.id);
+        // const ID = VALUES.find(user=>user.id == length-1)
+        // console.log(ID.id);
         
         $('#personalDetailsCard').hide()
         $('#academicDetails').show()
@@ -60,7 +68,8 @@ async function academicDetails(){
         const studentAcademicDetails = {
             COLLEGE_NAME,DEPARMENT_NAME,COURSE_NAME,YEAR,EMAILID
         }
-        await fetch(`${API}/students`, {
+        const studentId = localStorage.getItem("studentId");
+        await fetch(`${API}/students/${studentId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -86,14 +95,15 @@ async function loginCard(){
         const studentCredentials = {
             USERNAME,PASSWORD
         }
-    
-        await fetch(`${API}/students`, {
+        const studentId = localStorage.getItem("studentId");
+        await fetch(`${API}/students/${studentId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(studentCredentials)
         });
+        localStorage.removeItem("studentId");
         setTimeout(() => {
             window.location.replace('/pages/studentSampleLogin.html')
         }, 2000);
@@ -101,6 +111,6 @@ async function loginCard(){
 }
 
 
-$('.continue').click(()=>personalDetails())
+$('#continueNext').click(()=>personalDetails())
 $('#continueBtn').click(()=>academicDetails())
 $('#submitRegBtn').click(()=>loginCard())
