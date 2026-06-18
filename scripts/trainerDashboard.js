@@ -331,21 +331,92 @@ async function filterByStatus(){
 
 
 
-$('#filter').on('change',function filter(){
-    const FILTER = $('.this').val()
-    if (FILTER == 'Status'){
-        bootstrap.Modal.getInstance(
-            document.getElementById('filterStatusModal')
-        ).show()
-        filterByStatus();
+$('#filter').on('change', function () {
+
+    const FILTER = $(this).val();
+
+    if (FILTER === 'Status') {
+        new bootstrap.Modal(document.getElementById('filterStatus')
+        ).show();
     }
-    else if (FILTER == 'Date'){
-        filterByDate()
+
+    else if (FILTER === 'Date') {
+        new bootstrap.Modal(document.getElementById('filterDate')
+        ).show();
     }
-    else if (FILTER == 'Grade'){
-        filterByGrade()
+
+    else if (FILTER === 'Grade') {
+        new bootstrap.Modal(document.getElementById('filterGrade')
+        ).show();
     }
-})
+
+});
+
+$('#filterStatusSubmitBtn').click(async function () {
+
+    const selectedStatus = $('#status').val();
+
+    const response = await fetch(`${API}/assignments`);
+    const assignments = await response.json();
+
+    const filteredAssignments = assignments.filter(data =>
+        data.TRAINER_ID === loggedInUser.id &&
+        !data.IS_DELETED &&
+        data.STATUS === selectedStatus
+    );
+
+    renderAssignments(filteredAssignments);
+    bootstrap.Modal.getOrCreateInstance(document.getElementById('filterStatus')
+    ).hide();
+});
+
+$('#filterGradeSubmitBtn').click(async function () {
+
+    const selectedGrade = $('#grade').val();
+
+    const response = await fetch(`${API}/assignments`);
+    const assignments = await response.json();
+
+    const filteredAssignments = assignments.filter(data =>
+        data.TRAINER_ID === loggedInUser.id &&
+        !data.IS_DELETED &&
+        data.GRADE === selectedGrade
+    );
+
+    renderAssignments(filteredAssignments);
+    bootstrap.Modal.getOrCreateInstance(document.getElementById('filterGrade')
+    ).hide();   
+});
+
+$('#filterDateSubmitBtn').click(async function () {
+
+    const startDate = $('#startdate').val();
+    const endDate = $('#enddate').val();
+
+    const response = await fetch(`${API}/assignments`);
+    const assignments = await response.json();
+
+    const filteredAssignments = assignments.filter(data => {
+
+        if (
+            data.TRAINER_ID !== loggedInUser.id ||
+            data.IS_DELETED
+        ) {
+            return false;
+        }
+
+        const dueDate = new Date(data.DUE_DATE);
+
+        return (
+            dueDate >= new Date(startDate) &&
+            dueDate <= new Date(endDate)
+        );
+    });
+
+    renderAssignments(filteredAssignments);
+    bootstrap.Modal.getOrCreateInstance(document.getElementById('filterDate')
+    ).hide();
+});
 
 $('#createAssignmentBtn').click(()=> addAssignment())
 $('#editAssignmentBtn').click(()=> editAssignment(currentAssignmentId));
