@@ -64,20 +64,20 @@
                         <div class="workArea w-100">
                             <div class="container-fluid h-25 p-4">
                                 <div class="row counter-cont h-100 d-flex flex-wrap  gap-3">
-                                    <div class="counters col-3 bg-success">
-                                        <p>Completed</p>
+                                    <div class="counters col-3 bg-success text-center align-content-center">
+                                        <p class="fs-5">Completed</p>
                                         <p id="completedCount"></p>
                                     </div>
-                                    <div class="counters col-3 bg-primary">
-                                        <p>Evaluated</p>
-                                        <p id="assignedCount"></p>
+                                    <div class="counters col-3 bg-primary text-center align-content-center">
+                                        <p class="fs-5">Evaluated</p>
+                                        <p id="evaluatedCount"></p>
                                     </div>
-                                    <div class="counters col-3 bg-warning">
-                                        <p>Pending</p>
+                                    <div class="counters col-3 bg-warning text-center align-content-center">
+                                        <p class="fs-5">Pending</p>
                                         <p id="pendingCount"></p>
                                     </div>
-                                    <div class="counters col-3 bg-danger">
-                                        <p>OverDue</p>
+                                    <div class="counters col-3 bg-danger text-center align-content-center">
+                                        <p class="fs-5">OverDue</p>
                                         <p id="overDueCount"></p>
                                         
                                     </div>
@@ -94,49 +94,6 @@
                                     </div>
                                     <div class="col-12 bg-info" id="assignmentContent">
                                         <div class="rows card-cont overflow-y-auto d-flex flex-wrap p-3">
-                                            <!-- <div class="card col-3">
-                                                <div class="card-title pt-2 ps-2">
-                                                    <h4>Build Landing page</h4>
-                                                    <div class="assignment_meta_data d-flex justify-content-between pe-3">
-                                                        <div class="id_type d-flex gap-2">
-                                                            <p>A101</p>
-                                                            <p>Practical</p>
-                                                        </div>
-                                                        <div class="due_date d-flex gap-1">
-                                                            <p>Due on: </p>
-                                                            <p>19-06-2026</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="course_meta_data d-flex justify-content-between pe-3">
-                                                        <div class="id_type d-flex gap-2">
-                                                            <p>Course:</p>
-                                                            <p>BSc. AIML</p>
-                                                        </div>
-                                                        <div class="due_date d-flex gap-1">
-                                                            <p>Year: </p>
-                                                            <p>III</p>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="card-body ps-2 pt-0">
-                                                    <p>Using the appropriate tech stack with proper validation</p>
-                                                </div>
-                                                <div class="card-footer ps-2">
-                                                    <button class="border-0"><i class="bi bi-pencil-square"></i></button>
-                                                    <button class="border-0"><i class="bi bi-trash"></i></button>
-                                                    <button class="border-0"><i class="bi bi-eye"></i></button>
-                                                </div>
-                                            </div> -->
-                                            <!-- <div class="card col-3">
-                                                
-                                            </div>
-                                            <div class="card col-3">
-                                                
-                                            </div>
-                                            <div class="card col-3"> -->
-                                                
-                                            <!-- </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -183,6 +140,54 @@
                 <div class="modal-footer d-flex justify-content-between">
                     <button id="clearValuesBtn">Clear All</button>
                     <button id="createAssignmentBtn">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editAssignmentModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Edit Assignemnt</h4>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <label >Assignment ID</label>
+                    <input type="text" class="form-control" id="editAssignmentID">
+                    <label >Assignment Name</label>
+                    <input type="text" class="form-control" id="editAssignmentName">
+                    <label >Assignemnt Type</label>
+                    <input type="text" class="form-control" id="editAssignmentType">
+                    <label >Assignemnt Description</label>
+                    <input type="text" class="form-control" id="editAssignmentDesc">
+                    <label >Due Date</label>
+                    <input type="date" class="form-control" id="editDueDate">
+                    <label >Assign to which Course</label>
+                    <input type="text" class="form-control" id="editAssignToCourse">
+                    <label >Assign to which Year</label>
+                    <input type="number" class="form-control" id="editAssignToYear">
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button id="clearBtn">Clear All</button>
+                    <button id="editAssignmentBtn">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="evaluateAssignmentModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Evaluate Assignemnt</h4>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <label >Marks (out of 100)</label>
+                    <input type="number" class="form-control" id="eval_marks">                    
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button id="eval_clearBtn">Clear All</button>
+                    <button id="eval_submit">Submit</button>
                 </div>
             </div>
         </div>
