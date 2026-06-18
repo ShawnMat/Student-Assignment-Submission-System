@@ -407,3 +407,63 @@ $('#eval_submit')
 
 getAssignments();
 
+
+
+<button id="filterBtn" class="btn">
+    <i class="bi bi-funnel"></i>
+    Filters
+</button>
+
+<div id="filterPanel" class="filter-panel">
+
+    <h5>Filters</h5>
+
+    <select id="statusFilter" class="form-select mb-2">
+        <option value="">All Status</option>
+        <option value="Pending">Pending</option>
+        <option value="Evaluated">Evaluated</option>
+    </select>
+
+    <select id="gradeFilter" class="form-select mb-2">
+        <option value="">All Grades</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+    </select>
+
+    <input
+        type="number"
+        id="marksFilter"
+        class="form-control mb-2"
+        placeholder="Minimum Marks">
+
+</div>
+
+
+.filter-panel{
+    position:absolute;
+    top:100px;
+    right:30px;
+
+    width:300px;
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    box-shadow:0 0 20px rgba(0,0,0,.15);
+
+    display:none;
+
+    z-index:999;
+}
+
+
+$('#filterBtn').click(() => {
+
+    $('#filterPanel').slideToggle(300);
+
+});
+
