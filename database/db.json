@@ -56,6 +56,71 @@
       "TO_COURSE": "BSc. AIML",
       "TO_YEAR": "2",
       "id": "5MLHu53PbJI"
+    },
+    {
+      "ASSIGNMENT_ID": "A1011",
+      "ASSIGNMENT_NAME": "Build Landing Page",
+      "ASSIGNMENT_TYPE": "Practical",
+      "ASSIGNMENT_DESC": "Build using the tech stack (HTML,CSS,JS,JQUERY) and Complete Validation also",
+      "DUE_DATE": "2026-06-19",
+      "TO_COURSE": "BSc. AIML",
+      "TO_YEAR": "2",
+      "id": "JFweg-daGSo"
+    },
+    {
+      "ASSIGNMENT_ID": "asda",
+      "ASSIGNMENT_NAME": "asd",
+      "ASSIGNMENT_TYPE": "asd",
+      "ASSIGNMENT_DESC": "asdasd",
+      "DUE_DATE": "2026-06-25",
+      "TO_COURSE": "asdas",
+      "TO_YEAR": "3",
+      "TRAINER_ID": "OuZYqaDsVn4",
+      "id": "h8uPOwTuf1I"
+    },
+    {
+      "ASSIGNMENT_ID": "A1011",
+      "ASSIGNMENT_NAME": "Build Landing Page",
+      "ASSIGNMENT_TYPE": "THEORITICAL",
+      "ASSIGNMENT_DESC": "Build using the tech stack (HTML,CSS,JS,JQUERY) and Complete Validation also",
+      "DUE_DATE": "2026-06-22",
+      "TO_COURSE": "BSc. AIML",
+      "TO_YEAR": "3",
+      "TRAINER_ID": "OuZYqaDsVn4",
+      "id": "OF6jRtCaMGA"
+    },
+    {
+      "ASSIGNMENT_ID": "abcd",
+      "ASSIGNMENT_NAME": "ABCD",
+      "ASSIGNMENT_TYPE": "acvd",
+      "ASSIGNMENT_DESC": "adafa",
+      "DUE_DATE": "2026-06-13",
+      "TO_COURSE": "asdas",
+      "TO_YEAR": "3",
+      "TRAINER_ID": "OuZYqaDsVn4",
+      "id": "Vm2kmvrW9O4"
+    },
+    {
+      "ASSIGNMENT_ID": "asdsa",
+      "ASSIGNMENT_NAME": "asda",
+      "ASSIGNMENT_TYPE": "asd",
+      "ASSIGNMENT_DESC": "asd",
+      "DUE_DATE": "2026-06-12",
+      "TO_COURSE": "asds",
+      "TO_YEAR": "4",
+      "TRAINER_ID": "OuZYqaDsVn4",
+      "id": "MRdGv8SVdQo"
+    },
+    {
+      "ASSIGNMENT_ID": "asdas",
+      "ASSIGNMENT_NAME": "asdas",
+      "ASSIGNMENT_TYPE": "asd",
+      "ASSIGNMENT_DESC": "asd",
+      "DUE_DATE": "2026-07-02",
+      "TO_COURSE": "asd",
+      "TO_YEAR": "2",
+      "TRAINER_ID": "OuZYqaDsVn4",
+      "id": "6Hii6srRA2Q"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
