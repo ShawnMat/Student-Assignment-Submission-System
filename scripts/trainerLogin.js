@@ -1,9 +1,11 @@
 const API = 'http://localhost:3000'
-$('.submit').click(async function (username,password) {
+
+$('.submit').click(async function () {
     try{
-        const username = document.getElementById('username').value
-        const password = document.getElementById('password').value 
-        const response = await fetch(`${API}/students`)
+        const username = $('#username').val().trim()
+        const password = $('#password').val().trim()
+            
+        const response = await fetch(`${API}/trainers`)
         const users = await response.json()
         const values = users.find(users=>{   
             // console.log(username);
@@ -12,9 +14,9 @@ $('.submit').click(async function (username,password) {
             // console.log(users.Password);
             
             if(users.Username === username && users.Password === password){
-                localStorage.setItem("Username"= username)
+                localStorage.setItem("Username",username)
                 console.log("Success!!");
-                window.location.replace("/pages/studentSampleDashboard.html")
+                window.location.replace("/pages/trainerDashboard.html")
             }
             else{
                 console.log("Sorry, Couldn't connect you to server.");

@@ -1,0 +1,69 @@
+/* *{
+    outline: 1px solid red;
+} */
+
+.sidebar{
+    height: 100vh;
+    background-color: #009dff;
+    /* background-color: blue; */
+}
+.navbar-cont{
+    background-color: #80c7f3;
+}
+.navbar{
+    /* margin-left: 250px !important; */
+    width: 83.5% !important;
+}
+
+#logo-image{
+    width: 35px;
+    height: 35px;
+}
+.navbar-cont{
+    height: 4.2rem;
+}
+#searchFilter{
+    width: 300px;
+    height: 30px;
+}
+.lookups{
+    height: 90.3vh;
+}
+
+.counter-cont{
+    height: 50% !important;
+}
+.counters{
+    width: 24% !important;
+    /* height: 30% !important; */
+}
+.workspace{
+    height: 90vh ;
+}
+.workArea{
+    height: 90vh;
+}
+.quickViews{
+    height: 65vh !important;
+    background-color: #80c7f3;
+    /* border-radius: 15px; */
+}
+.viewContent{
+    height: 90%;
+    /* border-radius: 15px; */
+}
+.classArea{
+    background-color: #80c7f3;
+    height: 80vh;
+}
+.classContent{
+    height: 73vh;
+}
+
+.topContent{
+    height: 40px;
+    /* border: 1px solid #009dff; */
+}
+#createClsBtn{
+    height: 35px;
+}

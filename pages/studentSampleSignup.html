@@ -18,7 +18,7 @@
             <div class="sideSignupImage col-7 bg-dark-subtle">
             </div>
             <div class="signup-cont col-5 d-flex justify-content-center bg-light">
-                <div class="card  personalDetailsCard rounded-5 shadow-lg m-auto" id="cards">
+                <div class="card cards rounded-5 shadow-lg m-auto" id="personalDetailsCard">
                     <div class="card-body">
                         <div class="card-title text-center mb-3 fs-3">Personal Information</div>
                         <div class="card-text">
@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <!-- Academic Details (Hide the below card by default) -->
-                <div class="card d-none academicDetails rounded-5 shadow-lg m-auto " id="cards">
+                <div class="card cards rounded-5 shadow-lg m-auto " id="academicDetails">
                     <div class="card-body">
                         <div class="card-title text-center mb-3 fs-3">Academic Information</div>
                         <div class="card-text">
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="collegeEmail p-3">
                                     <p class="form-label">Email ID (College Email ID required)</p>
-                                    <input type="text" class="form-control" id="lname">
+                                    <input type="email" class="form-control" id="emailid">
                                 </div>
                                 <div class="backNcontinueButton d-flex justify-content-center gap-4">
                                     <div class="backButton text-center mt-2">
@@ -106,7 +106,7 @@
                     </div>
                 </div>
                 <!-- Credentails Generation (hide the below card also as default) -->
-                 <div class="card d-none loginCard rounded-5 shadow-lg m-auto ">
+                 <div class="card loginCard rounded-5 shadow-lg m-auto ">
                     <div class="card-body">
                         <div class="card-title text-center mb-3 fs-3">Credentails Generation</div>
                         <div class="card-text">
@@ -123,8 +123,13 @@
                                     <p class="form-label">Confirm Password</p>
                                     <input type="password" class="form-control" id="cpassword">
                                 </div>
-                                <div class="submitButton text-center mt-5">
-                                    <button class="submit w-75 border-0 rounded-2 bg-primary text-white">Register</button>
+                                <div class="backNcontinueButton d-flex justify-content-center gap-4">
+                                    <div class="backButton text-center mt-4">
+                                        <button id="backBtn" class="back border-0 rounded-2 bg-primary text-white">Back</button>
+                                    </div>
+                                    <div class="submitRegistrationButton text-center mt-4">
+                                        <button id="submitRegBtn" class="submit border-0 rounded-2 bg-primary text-white">Continue</button>
+                                    </div>
                                 </div>
                                 
                             </div>
@@ -136,7 +141,7 @@
     </div>
 
 
-    <script src="/scripts/studentSignup.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
