@@ -1,4 +1,13 @@
 
+.loginImage{
+    height: 90vh;
+    align-content:  center ;
+}
+#sideLoginImage{
+    width: 650px;
+    height: 500px;
+    
+}
 .loginCard{
     /* align-items: center; */
     /* display: flex !important; */

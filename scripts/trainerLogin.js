@@ -7,14 +7,16 @@ $('.submit').click(async function () {
             
         const response = await fetch(`${API}/trainers`)
         const users = await response.json()
-        const values = users.find(users=>{   
+        const values = users.find(users=>
+            users.Username === username && users.Password === password
+        )
             // console.log(username);
             // console.log(password);
             // console.log(users.Username);
             // console.log(users.Password);
             
-            if(users.Username === username && users.Password === password){
-                localStorage.setItem("Username",username)
+            if(values){
+                localStorage.setItem("loginUser",JSON.stringify(values))
                 console.log("Success!!");
                 window.location.replace("/pages/trainerDashboard.html")
             }
@@ -22,12 +24,12 @@ $('.submit').click(async function () {
                 console.log("Sorry, Couldn't connect you to server.");
                     
                 }
-            })
+            
             // console.log(values);
             
         }
-        catch{
-            console.log("Error");
+        catch(error){
+            console.log(error);
             
         }
 
