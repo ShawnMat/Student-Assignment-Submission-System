@@ -1,94 +1,19 @@
 {
   "students": [
     {
-      "FIRST_NAME": "Sujin",
-      "MIDDLE_NAME": "Thomas",
-      "LAST_NAME": "Daniel",
-      "GENDER": "on",
-      "DATE_OF_BIRTH": "2004-06-09",
-      "Username": "Sujin060",
-      "Password": "Sujin@123",
-      "id": "RbshrO10r8U"
-    },
-    {
-      "FIRST_NAME": "Daniel",
-      "MIDDLE_NAME": "P",
-      "LAST_NAME": "Thomas",
-      "GENDER": "on",
-      "DATE_OF_BIRTH": "2000-09-07",
-      "id": "q4iAcv9ABxM"
-    },
-    {
-      "FIRST_NAME": "Tegi",
-      "MIDDLE_NAME": "M",
-      "LAST_NAME": "Daniel",
-      "GENDER": "on",
-      "DATE_OF_BIRTH": "2026-06-20",
-      "id": "3Yf2KIibc0I"
-    },
-    {
-      "FIRST_NAME": "Surya",
-      "MIDDLE_NAME": "P",
-      "LAST_NAME": "Zachriah",
-      "GENDER": "on",
-      "DATE_OF_BIRTH": "2026-07-03",
-      "id": "BDNs5OS7j1k"
-    },
-    {
-      "FIRST_NAME": "aaaa",
-      "MIDDLE_NAME": "aaa",
-      "LAST_NAME": "aaa",
-      "GENDER": "on",
-      "DATE_OF_BIRTH": "2026-07-01",
-      "id": "-cLWPmO65Kk"
-    },
-    {
-      "FIRST_NAME": "asda",
-      "MIDDLE_NAME": "asd",
-      "LAST_NAME": "asd",
-      "GENDER": "on",
-      "DATE_OF_BIRTH": "2026-06-12",
-      "id": "Ua9sU3F_bzM"
-    },
-    {
-      "FIRST_NAME": "bbbbb",
-      "MIDDLE_NAME": "bbbbbb",
-      "LAST_NAME": "bbb",
-      "GENDER": "on",
-      "DATE_OF_BIRTH": "2026-06-18",
-      "id": "Xbv00blSvQo"
-    },
-    {
-      "FIRST_NAME": "asaasaasasa",
-      "MIDDLE_NAME": "asasaaas",
-      "LAST_NAME": "asaas",
-      "GENDER": "on",
-      "DATE_OF_BIRTH": "2026-06-19",
-      "id": "bhNTvurlkZA"
-    },
-    {
-      "FIRST_NAME": "asdas",
-      "MIDDLE_NAME": "asda",
-      "LAST_NAME": "sada",
-      "GENDER": "on",
-      "DATE_OF_BIRTH": "2026-06-25",
-      "id": "NMFbQXOivJQ"
-    },
-    {
-      "FIRST_NAME": "dae",
-      "MIDDLE_NAME": "ada",
-      "LAST_NAME": "asd",
-      "GENDER": "on",
-      "DATE_OF_BIRTH": "2026-06-24",
-      "id": "FMEvkktWmDM"
-    },
-    {
-      "FIRST_NAME": "dae",
-      "MIDDLE_NAME": "ada",
-      "LAST_NAME": "asd",
-      "GENDER": "on",
-      "DATE_OF_BIRTH": "2026-06-24",
-      "id": "Cwno3TFFgUQ"
+      "FIRST_NAME": "sa",
+      "MIDDLE_NAME": "jhvh",
+      "LAST_NAME": "hjvjh",
+      "GENDER": "Male",
+      "DATE_OF_BIRTH": "2026-06-02",
+      "id": "sWW4ahiWc6o",
+      "COLLEGE_NAME": "zvzcz",
+      "DEPARMENT_NAME": "dvs",
+      "COURSE_NAME": "sdsdf",
+      "YEAR": "2",
+      "EMAILID": "fdfs@f.com",
+      "USERNAME": "TestUser001",
+      "PASSWORD": "Testuser@123"
     }
   ],
   "trainers": [
@@ -102,8 +27,8 @@
         "C++",
         "SDLC"
       ],
-      "Username":"Abdul_Faiz101",
-      "Password":"Abdul@123",
+      "Username": "Abdul_Faiz101",
+      "Password": "Abdul@123",
       "id": "OuZYqaDsVn4"
     },
     {
@@ -116,8 +41,8 @@
         "Data Science",
         "Python"
       ],
-      "Username":"Sivakumar150",
-      "Password":"Sivakumar@123",
+      "Username": "Sivakumar150",
+      "Password": "Sivakumar@123",
       "id": "AofnKijcVXI"
     }
   ],
