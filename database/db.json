@@ -49,7 +49,7 @@
   "assignments": [
     {
       "ASSIGNMENT_ID": "sadas",
-      "ASSIGNMENT_NAME": "asdasd",
+      "ASSIGNMENT_NAME": "Sample",
       "ASSIGNMENT_TYPE": "asdas",
       "ASSIGNMENT_DESC": "dasd",
       "DUE_DATE": "2026-07-11",
@@ -57,11 +57,11 @@
       "TO_YEAR": "12",
       "TRAINER_ID": "OuZYqaDsVn4",
       "SUBMITTED_DATE": "Not Submitted",
-      "EVALUATED_DATE": "Not Evaluated",
-      "STATUS": "Pending",
-      "MARKS": 0,
-      "GRADE": "F",
-      "IS_DELETED": false,
+      "EVALUATED_DATE": "18-06-2026",
+      "STATUS": "Evaluated",
+      "MARKS": 89,
+      "GRADE": "B",
+      "IS_DELETED": true,
       "id": "QVTRdZ1MFUw"
     },
     {
@@ -91,12 +91,87 @@
       "TO_YEAR": "1",
       "TRAINER_ID": "OuZYqaDsVn4",
       "SUBMITTED_DATE": "Not Submitted",
-      "EVALUATED_DATE": "Not Evaluated",
+      "EVALUATED_DATE": "18-06-2026",
+      "STATUS": "Evaluated",
+      "MARKS": 70,
+      "GRADE": "C",
+      "IS_DELETED": true,
+      "id": "JQuz3FsDVnU"
+    },
+    {
+      "ASSIGNMENT_ID": "asdada",
+      "ASSIGNMENT_NAME": "asdasdasdasdasd",
+      "ASSIGNMENT_TYPE": "asasdasdsadsad",
+      "ASSIGNMENT_DESC": "sadasdasdsad",
+      "DUE_DATE": "27-06-2026",
+      "TO_COURSE": "adasdsad",
+      "TO_YEAR": "6",
+      "TRAINER_ID": "OuZYqaDsVn4",
+      "STATUS": "Evaluated",
+      "MARKS": 96,
+      "GRADE": "A",
+      "SUBMITTED_DATE": "Not Submitted",
+      "EVALUATED_DATE": "18-06-2026",
+      "IS_DELETED": true,
+      "id": "NcFUm83on48"
+    },
+    {
+      "ASSIGNMENT_ID": "asd",
+      "ASSIGNMENT_NAME": "asd",
+      "ASSIGNMENT_TYPE": "ads",
+      "ASSIGNMENT_DESC": "asdsad",
+      "DUE_DATE": {
+        "0": {},
+        "length": 1
+      },
+      "TO_COURSE": "sadsa",
+      "TO_YEAR": "88",
+      "TRAINER_ID": "OuZYqaDsVn4",
       "STATUS": "Pending",
       "MARKS": 0,
       "GRADE": "F",
+      "SUBMITTED_DATE": "Not Submitted",
+      "EVALUATED_DATE": "Not Evaluated",
+      "IS_DELETED": true,
+      "id": "ZLaBq86ZKgI"
+    },
+    {
+      "ASSIGNMENT_ID": "asdas",
+      "ASSIGNMENT_NAME": "asdas",
+      "ASSIGNMENT_TYPE": "asdasd",
+      "ASSIGNMENT_DESC": "asdas",
+      "DUE_DATE": [
+        "2026",
+        "06",
+        "12"
+      ],
+      "TO_COURSE": "asdas",
+      "TO_YEAR": "55",
+      "TRAINER_ID": "OuZYqaDsVn4",
+      "STATUS": "Pending",
+      "MARKS": 0,
+      "GRADE": "F",
+      "SUBMITTED_DATE": "Not Submitted",
+      "EVALUATED_DATE": "Not Evaluated",
+      "IS_DELETED": true,
+      "id": "7i-h7q2oQi0"
+    },
+    {
+      "ASSIGNMENT_ID": "asdasdasas",
+      "ASSIGNMENT_NAME": "asdasd",
+      "ASSIGNMENT_TYPE": "Practical",
+      "ASSIGNMENT_DESC": "asdasdsad",
+      "DUE_DATE": "27-06-2026",
+      "TO_COURSE": "asdasds",
+      "TO_YEAR": "4",
+      "TRAINER_ID": "OuZYqaDsVn4",
+      "STATUS": "Evaluated",
+      "MARKS": 88,
+      "GRADE": "B",
+      "SUBMITTED_DATE": "Not Submitted",
+      "EVALUATED_DATE": "18-06-2026",
       "IS_DELETED": false,
-      "id": "JQuz3FsDVnU"
+      "id": "__xQWcBcrE4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
