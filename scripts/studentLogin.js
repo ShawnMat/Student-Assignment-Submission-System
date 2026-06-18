@@ -1,13 +1,27 @@
-document.addEventListener('DOMContentLoaded',()=>{
-    const submitBtn=document.querySelector('.submit')
-    const username = document.querySelector('#username')
-    const password = document.querySelector('#password')
+const API = 'http://localhost:3000'
+$('.submit').click(async function(){
+    try{
+        const USERNAME = $('#username').val().trim()
+        const PASSWORD = $('#password').val().trim()
+        const RESPONSE = await fetch(`${API}/students`)
+        const USERS = await RESPONSE.json()
+        const VALID_USER = USERS.find(user => user.Username == USERNAME && user.Password==PASSWORD)
 
-
-
-
-
-    submitBtn.addEventListener('click',()=>{
-        window.location.href = "/pages/studentDashboard.html"
-    })
+        if(VALID_USER){
+            console.log("Succes")
+            setTimeout(() => {
+                window.location.replace("studentSampleDashboard.html")
+            }, 2000);
+        }
+        else{
+            console.log("Failed");
+            
+        }
+    }
+    catch(error){
+        console.error(error);
+    }
 })
+
+
+
