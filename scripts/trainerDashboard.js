@@ -1,7 +1,5 @@
 const API = 'http://localhost:3000'
-// $('.classArea').hide()
 $('.workArea').show()
-// $('.workArea').show()
 $('.classArea').hide()
 
 const currAssignmentID = null
@@ -9,8 +7,8 @@ const currAssignmentID = null
 const loggedInUser = JSON.parse(localStorage.getItem('loginUser'))
 console.log(loggedInUser);
 
-const TODAY_DATE = getCreatedDate()
-console.log(TODAY_DATE.getDate());
+// const TODAY_DATE = getCreatedDate()
+// console.log(TODAY_DATE.getDate());
 
 async function addAssignment(){   
     const ASSIGNMENT_ID = $('#assignmentID').val().trim()
@@ -45,19 +43,17 @@ async function addAssignment(){
         });
     
         getAssignments()
-        const CREATE_ASSIGNMENT_MODAL = bootstrap.Modal.getInstance(
+        bootstrap.Modal.getInstance(
             document.getElementById('createAssignmentModal')
-        )
-        CREATE_ASSIGNMENT_MODAL.hide()
-        
+        ).hide()
+        $('#createAssignmentModal input').val('');
     }
 }
 
 async function getAssignments(){
-    const loggedInUser = JSON.parse(
-    localStorage.getItem('loginUser'))
-    // const username = localStorage.getItem("Username")
-    console.log(loggedInUser);
+    // const loggedInUser = JSON.parse(
+    // localStorage.getItem('loginUser'))
+    // console.log(loggedInUser);
     
     const RESPONSE = await fetch(`${API}/assignments`)
     const TASKS = await RESPONSE.json()
@@ -73,59 +69,83 @@ function renderAssignments(VALUES){
     $('.card-cont').html("")
     
     VALUES.forEach(assignment => {
-        $('.card-cont').append(`<div class="card assignmentCard shawdow-lg col-6">
-                                                        <div class="card-title pt-2 ps-2">
-                                                            <div class="d-flex justify-content-between pe-2">
-                                                                <h4>${assignment.ASSIGNMENT_NAME}</h4>
-                                                                <div>${assignment.STATUS}</div>
-                                                            </div>
-                                                            <div class="assignment_meta_data d-flex justify-content-between pe-3">
-                                                                <div class="id_type ">
-                                                                    <p class="m-0">Assignment ID: ${assignment.ASSIGNMENT_ID}</p>
-                                                                    <p>Assignment Type: ${assignment.ASSIGNMENT_TYPE}</p>
-                                                                </div>
-                                                                <div class="due_date ">
-                                                                <p class="m-0">Due on: ${assignment.DUE_DATE}</p>
-                                                                <p class="m-0">Submitted on: ${assignment.SUBMITTED_DATE}</p>
-                                                                <p>Evaluated on: ${assignment.EVALUATED_DATE}</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="course_meta_data d-flex justify-content-between pe-3">
-                                                                <div class="id_type">
-                                                                    <p></p>
-                                                                    <p>Course: ${assignment.TO_COURSE}</p>
-                                                                </div>
-                                                                <div class="due_date">
-                                                                    <p></p>
-                                                                    <p>Year: ${assignment.TO_YEAR}</p>
-                                                                </div>
-                                                            </div>
-        
-                                                        </div>
-                                                        <div class="card-body ps-2 pt-0">
-                                                            <p>Description: ${assignment.ASSIGNMENT_DESC}</p>
-                                                        </div>
-                                                        <div class="card-footer d-flex justify-content-between ps-2">
-                                                            <div class="leftSide">
-                                                                <button data-bs-toggle="modal" data-bs-target="#editAssignmentModal" class="border-0"><i class="bi bi-pencil-square"></i></button>
-                                                                                    <button onclick="deleteAssignment('${assignment.id}')" class="border-0"><i class="bi bi-trash"></i></button>
-                                                                                    <button onclick="evaluateAssignment('${assignment.id}')" data-bs-toggle="modal" data-bs-target="#evaluateAssignmentModal" class="border-0"><i class="bi bi-card-checklist"></i></i></button>
-                                                            </div>
-                                                            <div class="rightSide d-flex gap-3">
-                                                                <p class="">Marks: ${assignment.MARKS}</p>
-                                                                <p class="">Grade: ${assignment.GRADE}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>`)
+        $('.card-cont').append(`
+            <div class="card assignmentCard shadow-lg col-6">
+            <div class="card-title pt-2 ps-2">
+                <div class="d-flex justify-content-between pe-2">
+                    <h4>${assignment.ASSIGNMENT_NAME}</h4>
+                    <div>${assignment.STATUS}</div>
+                </div>
+                <div class="assignment_meta_data d-flex justify-content-between pe-3">
+                    <div>
+                        <p class="m-0">
+                            Assignment ID:${assignment.ASSIGNMENT_ID}
+                        </p>
+
+                        <p>
+                            Assignment Type:${assignment.ASSIGNMENT_TYPE}
+                        </p>
+                    </div>
+                    <div>
+                        <p class="m-0">
+                            Due:${assignment.DUE_DATE}
+                        </p>
+                        <p class="m-0">
+                            Submitted:${assignment.SUBMITTED_DATE}
+                        </p>
+                        <p>
+                            Evaluated:${assignment.EVALUATED_DATE}
+                        </p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between pe-3">
+                    <p>
+                        Course:${assignment.TO_COURSE}
+                    </p>
+                    <p>
+                        Year:${assignment.TO_YEAR}
+                    </p>
+                </div>
+            </div>
+            <div class="card-body">
+                <p>
+                    ${assignment.ASSIGNMENT_DESC}
+                </p>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <div>
+                    <button onclick="openEditModal('${assignment.id}')" data-bs-toggle="modal" data-bs-target="#editAssignmentModal" class="border-0">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+
+                    <button onclick="deleteAssignment('${assignment.id}')" class="border-0">
+                        <i class="bi bi-trash"></i>
+                    </button>
+
+                    <button onclick="openEvaluateModal('${assignment.id}')" data-bs-toggle="modal" data-bs-target="#evaluateAssignmentModal" class="border-0">
+                        <i class="bi bi-card-checklist"></i>
+                    </button>
+                </div>
+                <div class="d-flex gap-3">
+                    <p>
+                        ${assignment.MARKS}
+                    </p>
+                    <p>
+                        ${assignment.GRADE}
+                    </p>
+                </div>
+            </div>
+        </div>
+            `)
         // editAssignment(assignment.id)
         
     });
 }
 
-function getCreatedDate(){
-    const now = new Date()
-    return now;
-}
+// function getCreatedDate(){
+//     const now = new Date()
+//     return now;
+// }
 
 
 
@@ -154,42 +174,79 @@ async function deleteAssignment(id){
 // renderAssignments(VALUES)
 // counters(VALUES)
 
-function counters(TASKS){
-    // const VALID_ASSIGNMENT = TASKS.filter(tasks=>tasks.IS_DELETED == false)
-    // console.log(VALID_ASSIGNMENT);
-    
-    // if(VALID_ASSIGNMENT){
-        const COMPLETED =TASKS.filter(tasks=>tasks.STATUS == "Completed").length
-        const EVALUATED =TASKS.filter(tasks=>tasks.STATUS == "Evaluated").length
-        const PENDING =TASKS.filter(tasks=>tasks.STATUS == "Pending").length
-        const OVERDUE =TASKS.filter(tasks=>tasks.STATUS == "Over Due").length
-        if(COMPLETED>=0){
-            $('#completedCount').text(COMPLETED)
-        }   
-        if(EVALUATED>=0){
-            $('#evaluatedCount').text(EVALUATED)
-        }   
-        if(PENDING>=0){
-            $('#pendingCount').text(PENDING)
-        }   
-        if(OVERDUE>=0){
-            $('#overDueCount').text(OVERDUE)
-        }      
-}
-async function getAssignmentID(){
-    const RESPONSE = await fetch(`${API}/assignments`)
-    const TASKS = await RESPONSE.json()
-    const CONTENT = TASKS.filter(data=> data.TRAINER_ID === loggedInUser.id)
-    const VALUES = TASKS.filter(data=> data.TRAINER_ID === loggedInUser.id && data.IS_DELETED == false)
-    const A_ID = CONTENT.find(data=>data.id)
+async function openEditModal(id){
 
-    editAssignment(VALUES,A_ID.id)
-    evaluateAssignment(A_ID)
+    currentAssignmentId = id;
+
+    const response =
+        await fetch(`${API}/assignments/${id}`);
+
+    const assignment =
+        await response.json();
+
+    $('#editAssignmentID')
+        .val(assignment.ASSIGNMENT_ID);
+
+    $('#editAssignmentName')
+        .val(assignment.ASSIGNMENT_NAME);
+
+    $('#editAssignmentType')
+        .val(assignment.ASSIGNMENT_TYPE);
+
+    $('#editAssignmentDesc')
+        .val(assignment.ASSIGNMENT_DESC);
+
+    $('#editAssignToCourse')
+        .val(assignment.TO_COURSE);
+
+    $('#editAssignToYear')
+        .val(assignment.TO_YEAR);
+}
+
+async function editAssignment(id){
+    const ASSIGNMENT_ID = $('#editAssignmentID').val().trim()
+    const ASSIGNMENT_NAME = $('#editAssignmentName').val().trim()
+    const ASSIGNMENT_TYPE = $('#editAssignmentType').val().trim()
+    const ASSIGNMENT_DESC = $('#editAssignmentDesc').val().trim()
+    const DUE_DATE = $('#editDueDate').val().trim()
+    const TO_COURSE = $('#editAssignToCourse').val().trim()
+    const TO_YEAR = $('#editAssignToYear').val().trim()
+    const TRAINER_ID = loggedInUser.id
+    // validation
+
+    if(!ASSIGNMENT_ID || !ASSIGNMENT_NAME || !ASSIGNMENT_TYPE || !ASSIGNMENT_DESC || !DUE_DATE || !TO_COURSE || !TO_YEAR ){
+        console.log("iNPUT REQUIREd");        
+    }
+    else{
+        const editedAssignmentDetails = {
+            ASSIGNMENT_ID,ASSIGNMENT_NAME,ASSIGNMENT_TYPE,ASSIGNMENT_DESC,DUE_DATE,TO_COURSE,TO_YEAR,TRAINER_ID
+        }
+        await fetch(`${API}/assignments/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(editedAssignmentDetails)
+        });
+        
+    
+        // getAssignments()
+        bootstrap.Modal.getInstance(
+            document.getElementById('editAssignmentModal')
+        ).hide()
+        
+    }
+    getAssignments();
+    // renderAssignments(VALUES)
+}
+
+function openEvaluateModal(id){
+    currentAssignmentId = id;
 }
 
 async function evaluateAssignment(id){
     const MARKS = $('#eval_marks').val().trim()
-    const GRADE = ''
+    let GRADE;
 if(!MARKS){
     console.log("INPUT REquired");
 }
@@ -213,73 +270,85 @@ else{
     // const evaluatedMarksGrade = {
     //         MARKS,GRADE
     //     }
-        const RESPONSE = await fetch(`${API}/assignments/${id}`, {
+        await fetch(`${API}/assignments/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                MARKS:MARKS,
-                GRADE:GRADE
+                MARKS,
+                GRADE,
+                STATUS:'Evaluated',
             })
+            
         });
         
     
         // getAssignments()
-        const EVALUATED_ASSIGNMENT_MODAL = bootstrap.Modal.getInstance(
+        bootstrap.Modal.getInstance(
             document.getElementById('evaluateAssignmentModal')
-        )
-        EVALUATED_ASSIGNMENT_MODAL.hide()
+        ).hide()
         
     }
-    // renderAssignments(VALUES)
+
+    getAssignments();
 }
 
-
-
-
-
-
-
-async function editAssignment(VALUES,id){
-    const ASSIGNMENT_ID = $('#editAssignmentID').val().trim()
-    const ASSIGNMENT_NAME = $('#editAssignmentName').val().trim()
-    const ASSIGNMENT_TYPE = $('#editAssignmentType').val().trim()
-    const ASSIGNMENT_DESC = $('#editAssignmentDesc').val().trim()
-    const DUE_DATE = $('#editDueDate').val().trim()
-    const TO_COURSE = $('#editAssignToCourse').val().trim()
-    const TO_YEAR = $('#editAssignToYear').val().trim()
-    const TRAINER_ID = loggedInUser.id
-    // validation
-
-    if(!ASSIGNMENT_ID || !ASSIGNMENT_NAME || !ASSIGNMENT_TYPE || !ASSIGNMENT_DESC || !DUE_DATE || !TO_COURSE || !TO_YEAR ){
-        console.log("iNPUT REQUIREd");        
-    }
-    else{
-        const editedAssignmentDetails = {
-            ASSIGNMENT_ID,ASSIGNMENT_NAME,ASSIGNMENT_TYPE,ASSIGNMENT_DESC,DUE_DATE,TO_COURSE,TO_YEAR,TRAINER_ID
-        }
-        const RESPONSE = await fetch(`${API}/assignments/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(editedAssignmentDetails)
-        });
-        
+function counters(TASKS){
+    // const VALID_ASSIGNMENT = TASKS.filter(tasks=>tasks.IS_DELETED == false)
+    // console.log(VALID_ASSIGNMENT);
     
-        // getAssignments()
-        const EDIT_ASSIGNMENT_MODAL = bootstrap.Modal.getInstance(
-            document.getElementById('editAssignmentModal')
-        )
-        EDIT_ASSIGNMENT_MODAL.hide()
-        
-    }
-    renderAssignments(VALUES)
+    // if(VALID_ASSIGNMENT){
+        const COMPLETED =TASKS.filter(tasks=>tasks.STATUS == "Completed").length
+        const EVALUATED =TASKS.filter(tasks=>tasks.STATUS == "Evaluated").length
+        const PENDING =TASKS.filter(tasks=>tasks.STATUS == "Pending").length
+        const OVERDUE =TASKS.filter(tasks=>tasks.STATUS == "Over Due").length
+        if(COMPLETED>=0){
+            $('#completedCount').text(COMPLETED)
+        }   
+        if(EVALUATED>=0){
+            $('#evaluatedCount').text(EVALUATED)
+        }   
+        if(PENDING>=0){
+            $('#pendingCount').text(PENDING)
+        }   
+        if(OVERDUE>=0){
+            $('#overDueCount').text(OVERDUE)
+        }      
 }
+
+
+async function filterByStatus(){
+    const RESPONSE = await fetch(`${API}/assignments`)
+    const TASKS = await RESPONSE.json()
+    const COMPLETED_VALUES = TASKS.filter(data=> data.TRAINER_ID === loggedInUser.id && data.IS_DELETED == false && data.STATUS == 'Completed')
+    const PENDING_VALUES = TASKS.filter(data=> data.TRAINER_ID === loggedInUser.id && data.IS_DELETED == false && data.STATUS == 'Pending')
+    const EVALUATED_VALUES = TASKS.filter(data=> data.TRAINER_ID === loggedInUser.id && data.IS_DELETED == false && data.STATUS == 'Evaluated')
+    const OVERDUE_VALUES = TASKS.filter(data=> data.TRAINER_ID === loggedInUser.id && data.IS_DELETED == false && data.STATUS == 'Over Due')
+
+}
+
+
+
+
+$('#filter').on('change',function filter(){
+    const FILTER = $('.this').val()
+    if (FILTER == 'Status'){
+        bootstrap.Modal.getInstance(
+            document.getElementById('filterStatusModal')
+        ).show()
+        filterByStatus();
+    }
+    else if (FILTER == 'Date'){
+        filterByDate()
+    }
+    else if (FILTER == 'Grade'){
+        filterByGrade()
+    }
+})
 
 $('#createAssignmentBtn').click(()=> addAssignment())
-$('#editAssignmentBtn').click(()=> getAssignmentID())
-$('#eval_submit').click(()=> getAssignmentID())
+$('#editAssignmentBtn').click(()=> editAssignment(currentAssignmentId));
+$('#eval_submit').click(()=> evaluateAssignment(currentAssignmentId) )
 
 getAssignments()

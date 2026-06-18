@@ -88,7 +88,17 @@
                                     <div class="col-12 d-flex justify-content-between align-items-center px-3  bg-info" id="topBar">
                                         <p class="pt-2">All Assignments</p>
                                         <div class="tools d-flex gap-2">
-                                            <div class="btn"><i class="bi bi-funnel-fill"></i></div>
+                                            <div class="btn  d-flex gap-3 filterBtn">
+                                                <!-- <i class="bi bi-funnel-fill"></i> -->
+                                                <select name="filter" id="filter">
+                                                    <option>Choose Filter</option>
+                                                    <option value="Status">Status</option>
+                                                    <option value="Date">Date</option>
+                                                    <option value="Grade">Grade</option>
+                                                </select>
+
+                                            </div>
+                                            
                                             <div class="btn" data-bs-toggle="modal" data-bs-target="#createAssignmentModal"><i class="bi bi-plus-square"></i></div>
                                         </div>
                                     </div>
@@ -192,6 +202,73 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="filterStatusModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Choose Status</h4>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <label >Status</label>
+                    <select name="Status" id="status">
+                        <option>Status</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Evaluated">Evaluated</option>
+                        <option value="Overdue">Over Due</option>
+                    </select>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button id="filterStatusSubmitBtn">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="filterDate">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <la>Date Filter</h4>
+                </div>
+                <div class="modal-body">
+                    <label>Choose Start Date</label>
+                    <input type="date" id="startdate">
+                    <label>Choose End Date</label>
+                    <input type="date" id="enddate">
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button id="filterDateSubmitBtn">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="filterGrade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Choose Grade</h4>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- <label >Status</label> -->
+                    <select name="Grade" id="grade">
+                        <option>Grade</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button id="filterGradeSubmitBtn">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
     <script src="/scripts/trainerDashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

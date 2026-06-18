@@ -17,26 +17,12 @@ async function addAssignment(){
     const ASSIGNMENT_NAME = $('#assignmentName').val().trim();
     const ASSIGNMENT_TYPE = $('#assignmentType').val().trim();
     const ASSIGNMENT_DESC = $('#assignmentDesc').val().trim();
-
-    const DUE_DATE = $('#dueDate')
-        .val()
-        .split('-')
-        .reverse()
-        .join('-');
-
+    const DUE_DATE = $('#dueDate').val().split('-').reverse().join('-');
     const TO_COURSE = $('#assignToCourse').val().trim();
     const TO_YEAR = $('#assignToYear').val().trim();
 
-    if(
-        !ASSIGNMENT_ID ||
-        !ASSIGNMENT_NAME ||
-        !ASSIGNMENT_TYPE ||
-        !ASSIGNMENT_DESC ||
-        !TO_COURSE ||
-        !TO_YEAR
-    ){
-        alert('All fields are required');
-        return;
+    if(!ASSIGNMENT_ID || !ASSIGNMENT_NAME || !ASSIGNMENT_TYPE || !ASSIGNMENT_DESC || !DUE_DATE || !TO_COURSE || !TO_YEAR ){
+        console.log("iNPUT REQUIREd");        
     }
 
     const assignmentDetails = {
