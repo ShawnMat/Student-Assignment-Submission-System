@@ -121,6 +121,55 @@
       "TO_YEAR": "2",
       "TRAINER_ID": "OuZYqaDsVn4",
       "id": "6Hii6srRA2Q"
+    },
+    {
+      "ASSIGNMENT_ID": "sdaf",
+      "ASSIGNMENT_NAME": "asfd",
+      "ASSIGNMENT_TYPE": "asfd",
+      "ASSIGNMENT_DESC": "asdfsdf",
+      "DUE_DATE": "2026-06-20",
+      "TO_COURSE": "saf",
+      "TO_YEAR": "3",
+      "TRAINER_ID": "OuZYqaDsVn4",
+      "id": "rqb-Y_ZMGJE"
+    },
+    {
+      "ASSIGNMENT_ID": "HELLO",
+      "ASSIGNMENT_NAME": "asfd",
+      "ASSIGNMENT_TYPE": "asfd",
+      "ASSIGNMENT_DESC": "asdfsdf",
+      "DUE_DATE": "2026-06-20",
+      "TO_COURSE": "saf",
+      "TO_YEAR": "3",
+      "TRAINER_ID": "OuZYqaDsVn4",
+      "id": "JzA9rvZprKM"
+    },
+    {
+      "ASSIGNMENT_ID": "HELLO",
+      "ASSIGNMENT_NAME": "asfas",
+      "ASSIGNMENT_TYPE": "njnini",
+      "ASSIGNMENT_DESC": "dsf",
+      "DUE_DATE": "2026-06-27",
+      "TO_COURSE": "asdf",
+      "TO_YEAR": "2",
+      "TRAINER_ID": "OuZYqaDsVn4",
+      "id": "KTQEGomjcTo"
+    },
+    {
+      "ASSIGNMENT_ID": "A1011",
+      "ASSIGNMENT_NAME": "HELLLOOO WORLD",
+      "ASSIGNMENT_TYPE": "asd",
+      "ASSIGNMENT_DESC": "asd",
+      "DUE_DATE": "2026-06-19",
+      "TO_COURSE": "saf",
+      "TO_YEAR": "2",
+      "TRAINER_ID": "OuZYqaDsVn4",
+      "SUBMITTED_DATE": "Not Submitted",
+      "EVALUATED_DATE": "Not Evaluated",
+      "STATUS": "Pending",
+      "MARKS": 0,
+      "GRADE": "F",
+      "id": "jXYqChgDSmk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
