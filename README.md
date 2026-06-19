@@ -51,15 +51,7 @@ The application is built using HTML, CSS, Bootstrap, JavaScript, jQuery, and JSO
 * Grade & Marks Tracking
 * Assignment Status Monitoring
 
-### Validation Features
 
-* Assignment ID Validation
-* Title Validation
-* Description Validation
-* Due Date Validation
-* Marks Validation
-* Grade Validation
-* Duplicate Assignment Prevention
 
 ---
 
@@ -76,9 +68,6 @@ The application is built using HTML, CSS, Bootstrap, JavaScript, jQuery, and JSO
 ### UI Libraries
 
 * Bootstrap Icons
-* Toastr Notifications
-* SweetAlert2
-* Chart.js
 
 ### Backend
 
@@ -107,7 +96,8 @@ The application is built using HTML, CSS, Bootstrap, JavaScript, jQuery, and JSO
 * Submitted Assignments
 * Pending Assignments
 * Evaluated Assignments
-* Average Marks
+* Over Due Assigment
+
 
 ---
 
@@ -139,14 +129,4 @@ Student Views Result
 
 ---
 
-## Future Enhancements
 
-* File Upload Support
-* PDF Submission
-* Email Notifications
-* Role-Based Authentication using JWT
-* MongoDB Integration
-* Node.js & Express Backend
-* Real-Time Notifications
-* Assignment Report Generation
-* Performance Analytics
