@@ -1,38 +1,28 @@
 const API = 'http://localhost:3000'
+
 $('.submit').click(async function () {
-    try{
-        const username = document.getElementById('username').value
-        const password = document.getElementById('password').value 
+    try {
+        const username = $('#username').val()
+        const password = $('#password').val()
+
         const response = await fetch(`${API}/students`)
         const users = await response.json()
-        const values = users.find(users=>{   
-            // console.log(username);
-            // console.log(password);
-            // console.log(users.Username);
-            // console.log(users.Password);
-            const VALID_USER = users.USERNAME === username && users.PASSWORD === password
-                if(VALID_USER){
-                    localStorage.clear()
-                    localStorage.setItem("Username", user.username)
-                    localStorage.setItem("isLoggedIn", "true");
-                    localStorage.setItem("studentId", user.id);
-                    localStorage.setItem("username", user.USERNAME);
-                    
-                    console.log("Success!!");
-                    window.location.replace("/pages/studentSampleDashboard.html")
-                }
-                else{
-                    console.log("Sorry, Couldn't connect you to server.");
-                        
-                    }
-                })
-            // console.log(values);
+
+        const student = users.find(user => user.USERNAME === username && user.PASSWORD === password)
+
+        if (student) {
+            localStorage.setItem("Student", JSON.stringify(student))
+            const loggedInStudent  = localStorage.setItem("isLoggedIn", "true")
+            console.log(loggedInStudent)
             
-        }
-        catch{
-            console.error();
-            
+            console.log("Success!!")
+
+            window.location.replace("/pages/studentSampleDashboard.html")
+        } else {
+            alert("Invalid Username or Password")
         }
 
-    
+    } catch (error) {
+        console.error(error)
+    }
 })

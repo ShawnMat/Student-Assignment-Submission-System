@@ -44,3 +44,9 @@
     height: 100%;
     /* background-color: #372929; */
 }
+
+
+.assignmentContainer{
+    height: 65% !important;
+    overflow-y: auto;
+}

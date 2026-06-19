@@ -4,8 +4,112 @@ $('.classArea').hide()
 
 const currAssignmentID = null
 
-const loggedInUser = JSON.parse(localStorage.getItem('loginUser'))
-console.log(loggedInUser);
+const loggedInUser = JSON.parse(localStorage.getItem('loginUser'));
+
+if (!loggedInUser) {
+    window.location.replace('/pages/trainerLogin.html');
+}
+
+$('#logoutBtn').click(function () {
+
+    localStorage.removeItem('loginUser');
+    localStorage.removeItem('isLoggedIn');
+
+    window.location.replace('/pages/trainerLogin.html');
+
+});
+
+$('.sidebarBtns').click(function(){
+
+    $('.sidebarBtns').removeClass('active');
+
+    $(this).addClass('active');
+
+});
+
+$('#dashboardBtn').click(function(){
+
+    $('.sidebarBtns').removeClass('active');
+    $(this).addClass('active');
+
+    $('#dashboardSection').show();
+    $('#assignmentSection').hide();
+    $('#submissionSection').hide();
+    $('#studentsSection').hide();
+    $('#calendarSection').hide();
+    $('#reportsSection').hide();
+
+});
+
+$('#assignmentBtn').click(function(){
+
+    $('.sidebarBtns').removeClass('active');
+    $(this).addClass('active');
+
+    $('#dashboardSection').hide();
+    $('#assignmentSection').show();
+    $('#submissionSection').hide();
+    $('#studentsSection').hide();
+    $('#calendarSection').hide();
+    $('#reportsSection').hide();
+
+});
+
+$('#submissionBtn').click(function(){
+
+    $('.sidebarBtns').removeClass('active');
+    $(this).addClass('active');
+
+    $('#dashboardSection').hide();
+    $('#assignmentSection').hide();
+    $('#submissionSection').show();
+    $('#studentsSection').hide();
+    $('#calendarSection').hide();
+    $('#reportsSection').hide();
+
+});
+
+$('#studentsBtn').click(function(){
+
+    $('.sidebarBtns').removeClass('active');
+    $(this).addClass('active');
+
+    $('#dashboardSection').hide();
+    $('#assignmentSection').hide();
+    $('#submissionSection').hide();
+    $('#studentsSection').show();
+    $('#calendarSection').hide();
+    $('#reportsSection').hide();
+
+});
+
+$('#calendarBtn').click(function(){
+
+    $('.sidebarBtns').removeClass('active');
+    $(this).addClass('active');
+
+    $('#dashboardSection').hide();
+    $('#assignmentSection').hide();
+    $('#submissionSection').hide();
+    $('#studentsSection').hide();
+    $('#calendarSection').show();
+    $('#reportsSection').hide();
+
+});
+
+$('#reportsBtn').click(function(){
+
+    $('.sidebarBtns').removeClass('active');
+    $(this).addClass('active');
+
+    $('#dashboardSection').hide();
+    $('#assignmentSection').hide();
+    $('#submissionSection').hide();
+    $('#studentsSection').hide();
+    $('#calendarSection').hide();
+    $('#reportsSection').show();
+
+});
 
 // const TODAY_DATE = getCreatedDate()
 // console.log(TODAY_DATE.getDate());
@@ -63,6 +167,7 @@ async function getAssignments(){
     
     renderAssignments(VALUES)
     counters(VALUES)
+    
 }
 
 function renderAssignments(VALUES){
@@ -70,73 +175,108 @@ function renderAssignments(VALUES){
     
     VALUES.forEach(assignment => {
         $('.card-cont').append(`
-            <div class="card assignmentCard shadow-lg col-6">
-            <div class="card-title pt-2 ps-2">
-                <div class="d-flex justify-content-between pe-2">
-                    <h4>${assignment.ASSIGNMENT_NAME}</h4>
-                    <div>${assignment.STATUS}</div>
-                </div>
-                <div class="assignment_meta_data d-flex justify-content-between pe-3">
-                    <div>
-                        <p class="m-0">
-                            Assignment ID:${assignment.ASSIGNMENT_ID}
-                        </p>
+<div class="card assignmentCard shadow border-0 m-2">
+    
+    <div class="card-header bg-white border-0">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="fw-bold mb-1">
+                    ${assignment.ASSIGNMENT_NAME}
+                </h5>
 
-                        <p>
-                            Assignment Type:${assignment.ASSIGNMENT_TYPE}
-                        </p>
-                    </div>
-                    <div>
-                        <p class="m-0">
-                            Due:${assignment.DUE_DATE}
-                        </p>
-                        <p class="m-0">
-                            Submitted:${assignment.SUBMITTED_DATE}
-                        </p>
-                        <p>
-                            Evaluated:${assignment.EVALUATED_DATE}
-                        </p>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-between pe-3">
-                    <p>
-                        Course:${assignment.TO_COURSE}
-                    </p>
-                    <p>
-                        Year:${assignment.TO_YEAR}
-                    </p>
-                </div>
+                <small class="text-muted">
+                    ID : ${assignment.ASSIGNMENT_ID}
+                </small>
             </div>
-            <div class="card-body">
-                <p>
-                    ${assignment.ASSIGNMENT_DESC}
-                </p>
-            </div>
-            <div class="card-footer d-flex justify-content-between">
-                <div>
-                    <button onclick="openEditModal('${assignment.id}')" data-bs-toggle="modal" data-bs-target="#editAssignmentModal" class="border-0">
-                        <i class="bi bi-pencil-square"></i>
-                    </button>
 
-                    <button onclick="deleteAssignment('${assignment.id}')" class="border-0">
-                        <i class="bi bi-trash"></i>
-                    </button>
-
-                    <button onclick="openEvaluateModal('${assignment.id}')" data-bs-toggle="modal" data-bs-target="#evaluateAssignmentModal" class="border-0">
-                        <i class="bi bi-card-checklist"></i>
-                    </button>
-                </div>
-                <div class="d-flex gap-3">
-                    <p>
-                        ${assignment.MARKS}
-                    </p>
-                    <p>
-                        ${assignment.GRADE}
-                    </p>
-                </div>
-            </div>
+            <span class="badge ${
+                assignment.STATUS === 'Evaluated'
+                ? 'bg-success'
+                : assignment.STATUS === 'Completed'
+                ? 'bg-primary'
+                : assignment.STATUS === 'Over Due'
+                ? 'bg-danger'
+                : 'bg-warning text-dark'
+            }">
+                ${assignment.STATUS}
+            </span>
         </div>
-            `)
+    </div>
+
+    <div class="card-body">
+
+        <p class="text-muted small mb-3">
+            ${assignment.ASSIGNMENT_DESC}
+        </p>
+
+        <div class="row g-2">
+
+            <div class="col-6">
+                <div class="bg-light rounded p-2">
+                    <small class="text-muted">Course</small>
+                    <div>${assignment.TO_COURSE}</div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="bg-light rounded p-2">
+                    <small class="text-muted">Year</small>
+                    <div>${assignment.TO_YEAR}</div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="bg-light rounded p-2">
+                    <small class="text-muted">Due Date</small>
+                    <div>${assignment.DUE_DATE}</div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="bg-light rounded p-2">
+                    <small class="text-muted">Submitted Date</small>
+                    <div>${assignment.SUBMITTED_DATE}</div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="bg-light rounded p-2">
+                    <small class="text-muted">Type</small>
+                    <div>${assignment.ASSIGNMENT_TYPE}</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+
+        <div class="d-flex gap-2">
+
+            <button onclick="openEditModal('${assignment.id}')" data-bs-toggle="modal" data-bs-target="#editAssignmentModal" class="btn btn-outline-primary btn-sm"> <i class="bi bi-pencil-square"></i>
+            </button>
+
+            <button onclick="deleteAssignment('${assignment.id}')" class="btn btn-outline-danger btn-sm"> <i class="bi bi-trash"></i>
+            </button>
+
+            <button onclick="openEvaluateModal('${assignment.id}')" data-bs-toggle="modal" data-bs-target="#evaluateAssignmentModal" class="btn btn-outline-success btn-sm"> <i class="bi bi-check2-square"></i>
+            </button>
+
+        </div>
+
+        <div class="text-end">
+            <div class="fw-bold fs-5">
+                ${assignment.MARKS}/100
+            </div>
+            <small class="text-muted">
+                Grade ${assignment.GRADE}
+            </small>
+        </div>
+
+    </div>
+
+</div>
+`)
         // editAssignment(assignment.id)
         
     });
@@ -318,15 +458,15 @@ function counters(TASKS){
 }
 
 
-async function filterByStatus(){
-    const RESPONSE = await fetch(`${API}/assignments`)
-    const TASKS = await RESPONSE.json()
-    const COMPLETED_VALUES = TASKS.filter(data=> data.TRAINER_ID === loggedInUser.id && data.IS_DELETED == false && data.STATUS == 'Completed')
-    const PENDING_VALUES = TASKS.filter(data=> data.TRAINER_ID === loggedInUser.id && data.IS_DELETED == false && data.STATUS == 'Pending')
-    const EVALUATED_VALUES = TASKS.filter(data=> data.TRAINER_ID === loggedInUser.id && data.IS_DELETED == false && data.STATUS == 'Evaluated')
-    const OVERDUE_VALUES = TASKS.filter(data=> data.TRAINER_ID === loggedInUser.id && data.IS_DELETED == false && data.STATUS == 'Over Due')
+// async function filterByStatus(){
+//     const RESPONSE = await fetch(`${API}/assignments`)
+//     const TASKS = await RESPONSE.json()
+//     const COMPLETED_VALUES = TASKS.filter(data=> data.TRAINER_ID === loggedInUser.id && data.IS_DELETED == false && data.STATUS == 'Completed')
+//     const PENDING_VALUES = TASKS.filter(data=> data.TRAINER_ID === loggedInUser.id && data.IS_DELETED == false && data.STATUS == 'Pending')
+//     const EVALUATED_VALUES = TASKS.filter(data=> data.TRAINER_ID === loggedInUser.id && data.IS_DELETED == false && data.STATUS == 'Evaluated')
+//     const OVERDUE_VALUES = TASKS.filter(data=> data.TRAINER_ID === loggedInUser.id && data.IS_DELETED == false && data.STATUS == 'Over Due')
 
-}
+// }
 
 
 
@@ -417,6 +557,20 @@ $('#filterDateSubmitBtn').click(async function () {
     bootstrap.Modal.getOrCreateInstance(document.getElementById('filterDate')
     ).hide();
 });
+
+$('#searchFilter').on('keyup', async function () {
+        const searchValue = $(this).val().toLowerCase();
+        const response = await fetch(`${API}/assignments`);
+        const assignments = await response.json();
+
+        const filteredAssignments = assignments.filter(data =>
+            data.TRAINER_ID === loggedInUser.id &&
+            !data.IS_DELETED &&
+            data.ASSIGNMENT_NAME.toLowerCase().includes(searchValue)
+        );
+
+    renderAssignments(filteredAssignments);
+}); 
 
 $('#createAssignmentBtn').click(()=> addAssignment())
 $('#editAssignmentBtn').click(()=> editAssignment(currentAssignmentId));

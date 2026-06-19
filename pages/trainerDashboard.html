@@ -14,34 +14,38 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class=" sidebar col-2 d-flex flex-column justify-content-between gap-5 p-4">
-                <div class="brandName d-flex gap-3 ">
-                    <img src="/assets/images/loginImage.jpg" id="logo-image">
-                    <h4>UBSASS</h4>
+            <div class="sidebar col-2 d-flex flex-column justify-content-between p-4">
+
+                <div>
+
+                    <div class="brandName d-flex align-items-center gap-3 mb-5">
+                        <img src="/assets/images/loginImage.jpg" id="logo-image">
+                        <h4 class="m-0 fw-bold">UBSASS</h4>
+                    </div>
+
+                    <div class="sidebar-options d-flex flex-column gap-3">
+
+                        <button id="dashboardBtn" class="btn sidebarBtns active d-flex align-items-center gap-3">
+                            <i class="bi bi-grid-fill"></i>
+                            <span>Dashboard</span>
+                        </button>
+
+                        <button id="assignmentBtn" class="btn sidebarBtns d-flex align-items-center gap-3">
+                            <i class="bi bi-journal-text"></i>
+                            <span>Assignments</span>
+                        </button>
+                    </div>
+
                 </div>
-                <div class="container-fluid sidebar-options d-flex flex-column gap-4 align-content-center">
-                    <button id="dashboardBtn" class=" btn sidebarBtns d-flex gap-4">
-                        <i class="bi bi-microsoft p-1"></i>
-                        <a href="" class="sidedbarBtns text-decoration-none text-black fs-5">Dashboard</a>
+
+                <div class="Logout">
+                    <button id="logoutBtn" class="btn btn-danger w-100">
+                        <i class="bi bi-box-arrow-right me-2"></i>
+                        Logout
                     </button>
-                    <button id="assignmentBtn" class=" btn sidebarBtns d-flex gap-4">
-                        <i class="bi bi-file-text p1"></i>
-                        <a href="" class="sidebarBtnds text-decoration-none text-black fs-5">Assignments</a>
-                    </button>
-                    <button id="filterBtn" class="btn sidebarBtns d-flex gap-4">
-                        <i class="bi bi-funnel p-1"></i>
-                        <a href="" class="sidebarBtdns text-decoration-none text-black fs-5">Filters</a>
-                    </button>
-                    <button id="calendarBtn" class="btn sidebarBtns d-flex gap-4">
-                        <i class="bi bi-calendar4-week p-1"></i>
-                        <a href="" class="sidebarBtnds text-decoration-none text-black fs-5">Calender</a>
-                    </button>
-                    <!-- <button class="btn"><a href="" class="text-decoration-none text-light fs-5">Dashboard</a></button> -->
+
                 </div>
-                <div class="container-fluid">
-                    saddssdffs
-                </div>
-                
+
             </div>
             <div class="col-10 p-0">
                 <div class="navbar-cont d-flex justify-content-between p-4">
@@ -53,32 +57,31 @@
                         <i class="bi bi-search"></i>
                         <input type="search" id="searchFilter">
                     </div>
-                    <div class="profile-cont d-flex gap-3">
-                        <i class="bi bi-person-square"></i>
-                        <p class="profile">Student Name</p>
-                    </div>
+                        
+                    
+                    
                 </div>
                 <!-- WorkSpace Container -->
                 <div class="container-fluid workspace ">
                 <!-- Work Area or Assignment viewer -->
-                        <div class="workArea w-100">
+                        <div id="dashboardSection" class="workArea w-100">
                             <div class="container-fluid h-25 p-4">
                                 <div class="row counter-cont h-100 d-flex flex-wrap  gap-3">
                                     <div class="counters col-3 bg-success text-center align-content-center">
                                         <p class="fs-5">Completed</p>
-                                        <p id="completedCount"></p>
+                                        <p id="completedCount" class="fs-5"></p>
                                     </div>
                                     <div class="counters col-3 bg-primary text-center align-content-center">
                                         <p class="fs-5">Evaluated</p>
-                                        <p id="evaluatedCount"></p>
+                                        <p id="evaluatedCount" class="fs-5"></p>
                                     </div>
                                     <div class="counters col-3 bg-warning text-center align-content-center">
                                         <p class="fs-5">Pending</p>
-                                        <p id="pendingCount"></p>
+                                        <p id="pendingCount" class="fs-5"></p>
                                     </div>
                                     <div class="counters col-3 bg-danger text-center align-content-center">
                                         <p class="fs-5">OverDue</p>
-                                        <p id="overDueCount"></p>
+                                        <p id="overDueCount" class="fs-5"></p>
                                         
                                     </div>
                                 </div>
@@ -88,18 +91,23 @@
                                     <div class="col-12 d-flex justify-content-between align-items-center px-3  bg-info" id="topBar">
                                         <p class="pt-2">All Assignments</p>
                                         <div class="tools d-flex gap-2">
-                                            <div class="btn  d-flex gap-3 filterBtn">
-                                                <!-- <i class="bi bi-funnel-fill"></i> -->
-                                                <select name="filter" id="filter">
-                                                    <option>Choose Filter</option>
-                                                    <option value="Status">Status</option>
-                                                    <option value="Date">Date</option>
+                                            <div class="filter-wrapper d-flex align-items-center gap-2">
+
+                                                <i class="bi bi-funnel-fill filter-icon"></i>
+
+                                                <select id="filter" class="form-select filter-select">
+                                                    <option selected>Filter Assignments</option>
+                                                    <option value="Status"> Status</option>
+                                                    <option value="Date">Due Date</option>
                                                     <option value="Grade">Grade</option>
                                                 </select>
 
                                             </div>
                                             
-                                            <div class="btn" data-bs-toggle="modal" data-bs-target="#createAssignmentModal"><i class="bi bi-plus-square"></i></div>
+                                            <div class="createAssignmentBtn" data-bs-toggle="modal" data-bs-target="#createAssignmentModal">
+                                                <i class="bi bi-plus-circle-fill"></i>
+                                                <span>Create Assignment</span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-12 bg-info" id="assignmentContent">
@@ -109,150 +117,274 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- All Classes  -->
-                        <!-- <div class="container classArea mt-4 p-4">
-                            <div class="classContent shadow-lg bg-light rounded-2 p-3 ">
-                                <div class="topContent d-flex justify-content-between">
-                                    <p>All Assignments</p>
-                                    <button class="btn bg-info" data-bs-toggle="modal" data-bs-target="#createAssignmentModal" id="createClsBtn">Create Assignment</button>
-                                </div>
-                                <div class="contentCards-cont">
-                                </div>
+                        <div id="assignmentSection" class="mt-5" style="display:none">
+
+                            <div class="d-flex justify-content-between mb-3">
+
+                                <h4>Assignments</h4>
+
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createAssignmentModal">
+                                    <i class="bi bi-plus-square"></i>
+                                    Create Assignment
+                                </button>
+
                             </div>
-                        </div> -->
-                </div>
+
+                            <div class="card-cont overflow-y-auto"></div>
+
+                        </div>
+                        <div id="submissionSection" style="display:none">
+
+                            <div class="card border-0 shadow-sm">
+
+                                <div class="card-header bg-white">
+                                    <h4>Student Submissions</h4>
+                                </div>
+
+                                <div class="card-body">
+
+                                    <table class="table table-hover">
+
+                                        <thead>
+                                            <tr>
+                                                <th>Student</th>
+                                                <th>Assignment</th>
+                                                <th>Submitted Date</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody id="submissionTable"></tbody>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div id="studentsSection" style="display:none">
+
+                            <div class="card border-0 shadow-sm">
+
+                                <div class="card-header bg-white">
+                                    <h4>Students</h4>
+                                </div>
+
+                                <div class="card-body">
+
+                                    <table class="table table-striped">
+
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Course</th>
+                                                <th>Year</th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody id="studentsTable"></tbody>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                </div> 
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="createAssignmentModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4>Create Assignemnt</h4>
-                    <button class="btn-close" data-bs-dismiss="modal"></button>
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+
+                <div class="modal-header bg-primary text-white">
+                    <h4 class="fw-bold">Create Assignment</h4>
+                    <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <label >Assignment ID</label>
-                    <input type="text" class="form-control" id="assignmentID">
-                    <label >Assignment Name</label>
-                    <input type="text" class="form-control" id="assignmentName">
-                    <label >Assignemnt Type</label>
-                    <input type="text" class="form-control" id="assignmentType">
-                    <label >Assignemnt Description</label>
-                    <input type="area" class="form-control" id="assignmentDesc">
-                    <label >Due Date</label>
-                    <input type="date" class="form-control" id="dueDate">
-                    <label >Assign to which Course</label>
-                    <input type="text" class="form-control" id="assignToCourse">
-                    <label >Assign to which Year</label>
-                    <input type="number" class="form-control" id="assignToYear">
+
+                <div class="modal-body p-4">
+
+                    <label class="form-label fw-semibold">Assignment ID</label>
+                    <input type="text" class="form-control form-control-lg rounded-3" id="assignmentID">
+
+                    <label class="form-label fw-semibold mt-3">Assignment Name</label>
+                    <input type="text" class="form-control form-control-lg rounded-3" id="assignmentName">
+
+                    <label class="form-label fw-semibold mt-3">Assignment Type</label>
+                    <input type="text" class="form-control form-control-lg rounded-3" id="assignmentType">
+
+                    <label class="form-label fw-semibold mt-3">Assignment Description</label>
+                    <textarea class="form-control rounded-3" rows="4" id="assignmentDesc"></textarea>
+
+                    <label class="form-label fw-semibold mt-3">Due Date</label>
+                    <input type="date" class="form-control form-control-lg rounded-3" id="dueDate">
+
+                    <label class="form-label fw-semibold mt-3">Course</label>
+                    <input type="text" class="form-control form-control-lg rounded-3" id="assignToCourse">
+
+                    <label class="form-label fw-semibold mt-3">Year</label>
+                    <input type="number" class="form-control form-control-lg rounded-3" id="assignToYear">
+
                 </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button id="clearValuesBtn">Clear All</button>
-                    <button id="createAssignmentBtn">Create</button>
+
+                <div class="modal-footer border-0">
+                    <button class="btn btn-outline-secondary" id="clearValuesBtn">Clear</button>
+                    <button class="btn btn-primary px-4" id="createAssignmentBtn">
+                        <i class="bi bi-plus-circle"></i> Create
+                    </button>
                 </div>
+
             </div>
         </div>
     </div>
     <div class="modal fade" id="editAssignmentModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4>Edit Assignemnt</h4>
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+
+                <div class="modal-header bg-warning">
+                    <h4 class="fw-bold">Edit Assignment</h4>
                     <button class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <label >Assignment ID</label>
-                    <input type="text" class="form-control" id="editAssignmentID">
-                    <label >Assignment Name</label>
-                    <input type="text" class="form-control" id="editAssignmentName">
-                    <label >Assignemnt Type</label>
-                    <input type="text" class="form-control" id="editAssignmentType">
-                    <label >Assignemnt Description</label>
-                    <input type="text" class="form-control" id="editAssignmentDesc">
-                    <label >Due Date</label>
-                    <input type="date" class="form-control" id="editDueDate">
-                    <label >Assign to which Course</label>
-                    <input type="text" class="form-control" id="editAssignToCourse">
-                    <label >Assign to which Year</label>
-                    <input type="number" class="form-control" id="editAssignToYear">
+
+                <div class="modal-body p-4">
+
+                    <label class="form-label fw-semibold">Assignment ID</label>
+                    <input type="text" class="form-control form-control-lg rounded-3" id="editAssignmentID">
+
+                    <label class="form-label fw-semibold mt-3">Assignment Name</label>
+                    <input type="text" class="form-control form-control-lg rounded-3" id="editAssignmentName">
+
+                    <label class="form-label fw-semibold mt-3">Assignment Type</label>
+                    <input type="text" class="form-control form-control-lg rounded-3" id="editAssignmentType">
+
+                    <label class="form-label fw-semibold mt-3">Assignment Description</label>
+                    <textarea class="form-control rounded-3" rows="4" id="editAssignmentDesc"></textarea>
+
+                    <label class="form-label fw-semibold mt-3">Due Date</label>
+                    <input type="date" class="form-control form-control-lg rounded-3" id="editDueDate">
+
+                    <label class="form-label fw-semibold mt-3">Course</label>
+                    <input type="text" class="form-control form-control-lg rounded-3" id="editAssignToCourse">
+
+                    <label class="form-label fw-semibold mt-3">Year</label>
+                    <input type="number" class="form-control form-control-lg rounded-3" id="editAssignToYear">
+
                 </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button id="clearBtn">Clear All</button>
-                    <button id="editAssignmentBtn">Edit</button>
+
+                <div class="modal-footer border-0">
+                    <button class="btn btn-outline-secondary" id="clearBtn">Clear</button>
+                    <button class="btn btn-warning px-4" id="editAssignmentBtn">
+                        <i class="bi bi-pencil-square"></i> Update
+                    </button>
                 </div>
+
             </div>
         </div>
     </div>
     <div class="modal fade" id="evaluateAssignmentModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4>Evaluate Assignemnt</h4>
-                    <button class="btn-close" data-bs-dismiss="modal"></button>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+
+                <div class="modal-header bg-success text-white">
+                    <h4 class="fw-bold">Evaluate Assignment</h4>
+                    <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <label >Marks (out of 100)</label>
-                    <input type="number" class="form-control" id="eval_marks">                    
+
+                <div class="modal-body p-4">
+
+                    <label class="form-label fw-semibold">Marks (Out of 100)</label>
+                    <input type="number" class="form-control form-control-lg rounded-3" id="eval_marks">
+
                 </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button id="eval_clearBtn">Clear All</button>
-                    <button id="eval_submit">Submit</button>
+
+                <div class="modal-footer border-0">
+                    <button class="btn btn-outline-secondary" id="eval_clearBtn">Clear</button>
+                    <button class="btn btn-success px-4" id="eval_submit">
+                        <i class="bi bi-check-circle"></i> Submit
+                    </button>
                 </div>
+
             </div>
         </div>
     </div>
     <div class="modal fade" id="filterStatus">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4>Choose Status</h4>
-                    <button class="btn-close" data-bs-dismiss="modal"></button>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+
+                <div class="modal-header bg-info text-white">
+                    <h4 class="fw-bold">Filter By Status</h4>
+                    <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <label >Status</label>
-                    <select name="Status" id="status">
+
+                <div class="modal-body p-4">
+
+                    <label class="form-label fw-semibold">Status</label>
+
+                    <select class="form-select form-select-lg rounded-3" id="status">
                         <option>Status</option>
                         <option value="Completed">Completed</option>
                         <option value="Pending">Pending</option>
                         <option value="Evaluated">Evaluated</option>
                         <option value="Overdue">Over Due</option>
                     </select>
+
                 </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button id="filterStatusSubmitBtn">Submit</button>
+
+                <div class="modal-footer border-0">
+                    <button class="btn btn-info text-white px-4" id="filterStatusSubmitBtn">
+                        Apply Filter
+                    </button>
                 </div>
+
             </div>
         </div>
     </div>
     <div class="modal fade" id="filterDate">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <la>Date Filter</h4>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+
+                <div class="modal-header bg-info text-white">
+                    <h4 class="fw-bold">Date Filter</h4>
+                    <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <label>Choose Start Date</label>
-                    <input type="date" id="startdate">
-                    <label>Choose End Date</label>
-                    <input type="date" id="enddate">
+
+                <div class="modal-body p-4">
+
+                    <label class="form-label fw-semibold">Start Date</label>
+                    <input type="date" class="form-control form-control-lg rounded-3" id="startdate">
+
+                    <label class="form-label fw-semibold mt-3">End Date</label>
+                    <input type="date" class="form-control form-control-lg rounded-3" id="enddate">
+
                 </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button id="filterDateSubmitBtn">Submit</button>
+
+                <div class="modal-footer border-0">
+                    <button class="btn btn-info text-white px-4" id="filterDateSubmitBtn">
+                        Apply Filter
+                    </button>
                 </div>
+
             </div>
         </div>
     </div>
     <div class="modal fade" id="filterGrade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4>Choose Grade</h4>
-                    <button class="btn-close" data-bs-dismiss="modal"></button>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+
+                <div class="modal-header bg-info text-white">
+                    <h4 class="fw-bold">Filter By Grade</h4>
+                    <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <!-- <label >Status</label> -->
-                    <select name="Grade" id="grade">
+
+                <div class="modal-body p-4">
+
+                    <select class="form-select form-select-lg rounded-3" id="grade">
                         <option>Grade</option>
                         <option value="A">A</option>
                         <option value="B">B</option>
@@ -260,10 +392,15 @@
                         <option value="D">D</option>
                         <option value="F">F</option>
                     </select>
+
                 </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button id="filterGradeSubmitBtn">Submit</button>
+
+                <div class="modal-footer border-0">
+                    <button class="btn btn-info text-white px-4" id="filterGradeSubmitBtn">
+                        Apply Filter
+                    </button>
                 </div>
+
             </div>
         </div>
     </div>
