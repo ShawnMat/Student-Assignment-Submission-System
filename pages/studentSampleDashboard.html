@@ -14,37 +14,41 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class=" sidebar col-2 d-flex flex-column justify-content-between bg-light gap-5 p-4">
-                <div class="brandName d-flex gap-3 ">
-                    <img src="/assets/images/loginImage.jpg" id="logo-image">
-                    <h4>UBSASS</h4>
+             <div class="sidebar bg-primary col-2 d-flex flex-column justify-content-between p-4">
+
+                <div>
+
+                    <div class="brandName d-flex align-items-center gap-3 mb-5">
+                        <img src="/assets/images/loginImage.jpg" id="logo-image">
+                        <h4 class="m-0 fw-bold">UBSASS</h4>
+                    </div>
+
+                    <div class="sidebar-options d-flex flex-column gap-3">
+
+                        <button id="dashboardBtn" class="btn sidebarBtns active d-flex align-items-center gap-3">
+                            <i class="bi bi-grid-fill"></i>
+                            <span>Dashboard</span>
+                        </button>
+
+                        <button id="assignmentBtn" class="btn sidebarBtns d-flex align-items-center gap-3">
+                            <i class="bi bi-journal-text"></i>
+                            <span>Assignments</span>
+                        </button>
+                    </div>
+
                 </div>
-                <div class="container-fluid sidebar-options d-flex flex-column gap-4 align-content-center">
-                    <button id="dashboardBtn" class=" btn sidebarBtns d-flex gap-4">
-                        <i class="bi bi-microsoft p-1"></i>
-                        <a href="" class="sidedbarBtns text-decoration-none text-black fs-5">Dashboard</a>
+
+                <div class="Logout">
+                    <button id="logoutBtn" class="btn btn-danger w-100">
+                        <i class="bi bi-box-arrow-right me-2"></i>
+                        Logout
                     </button>
-                    <button id="coursesBtn" class=" btn sidebarBtns d-flex gap-4">
-                        <i class="bi bi-file-text p1"></i>
-                        <a href="" class="sidebarBtnds text-decoration-none text-black fs-5">Courses</a>
-                    </button>
-                    <button id="filterBtn" class="btn sidebarBtns d-flex gap-4">
-                        <i class="bi bi-funnel p-1"></i>
-                        <a href="" class="sidebarBtdns text-decoration-none text-black fs-5">Filters</a>
-                    </button>
-                    <button id="calendarBtn" class="btn sidebarBtns d-flex gap-4">
-                        <i class="bi bi-calendar4-week p-1"></i>
-                        <a href="" class="sidebarBtnds text-decoration-none text-black fs-5">Calender</a>
-                    </button>
-                    <!-- <button class="btn"><a href="" class="text-decoration-none text-light fs-5">Dashboard</a></button> -->
+
                 </div>
-                <div class="container-fluid">
-                    saddssdffs
-                </div>
-                
+
             </div>
-            <div class="col-10 p-0">
-                <div class="navbar-cont d-flex justify-content-between bg-light p-4">
+            <div class="col-10 bg-light p-0">
+                <div class="navbar-cont d-flex justify-content-between bg-info p-4">
                     <div class="greetings-cont">
                         <p>Good Morning!</p>
                         <p id="userName"></p>
@@ -53,13 +57,9 @@
                         <i class="bi bi-search"></i>
                         <input type="search" id="searchFilter">
                     </div>
-                    <div class="profile-cont d-flex gap-3">
-                        <i class="bi bi-person-square"></i>
-                        <p class="profile">Student Name</p>
-                    </div>
                 </div>
                 <!-- WorkSpace Container -->
-                <div class="container-fluid workspace ">
+                <div class="container-fluid bg-white workspace ">
                     <div class="row d-flex">
                         <!-- Work Area or Assignment viewer -->
                         <div class="workArea col-9">
@@ -173,11 +173,7 @@
                                 </div>
                             </div>
                             <!-- calender -->
-                            <div class="calender-cont bg-light p-2">
-                                <div class="calender text-center p-2 bg-white">
-                                    CALENDER
-                                </div>
-                            </div>
+                           
 
                         </div>
                     </div>

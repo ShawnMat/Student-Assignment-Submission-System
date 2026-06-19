@@ -9,8 +9,56 @@ console.log(loggedInStudent)
 $('#userName').text(loggedInStudent.NAME)
 
 if(validUser !== true){
-    window.location.replace('/pages/studentSampleLogin.html')
+    window.location.replace('/pages/trainerLogin.html')
 }
+
+// $('#logoutBtn').click(function () {
+
+//     localStorage.removeItem('loginUser');
+//     localStorage.removeItem('isLoggedIn');
+
+//     window.location.replace('/pages/trainerLogin.html');
+
+// });
+
+
+$('.sidebarBtns').click(function(){
+
+    $('.sidebarBtns').removeClass('active');
+
+    $(this).addClass('active');
+
+});
+
+$('#dashboardBtn').click(function(){
+
+    $('.sidebarBtns').removeClass('active');
+    $(this).addClass('active');
+
+    $('#dashboardSection').show();
+    $('#assignmentSection').hide();
+    $('#submissionSection').hide();
+    $('#studentsSection').hide();
+    $('#calendarSection').hide();
+    $('#reportsSection').hide();
+
+});
+
+$('#assignmentBtn').click(function(){
+
+    $('.sidebarBtns').removeClass('active');
+    $(this).addClass('active');
+
+    $('#dashboardSection').hide();
+    $('#assignmentSection').show();
+    $('#submissionSection').hide();
+    $('#studentsSection').hide();
+    $('#calendarSection').hide();
+    $('#reportsSection').hide();
+
+});
+
+
 async function getAssignments(){
 
     const response = await fetch(`${API}/assignments`)

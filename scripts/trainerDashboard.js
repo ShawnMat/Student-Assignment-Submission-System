@@ -55,62 +55,6 @@ $('#assignmentBtn').click(function(){
 
 });
 
-$('#submissionBtn').click(function(){
-
-    $('.sidebarBtns').removeClass('active');
-    $(this).addClass('active');
-
-    $('#dashboardSection').hide();
-    $('#assignmentSection').hide();
-    $('#submissionSection').show();
-    $('#studentsSection').hide();
-    $('#calendarSection').hide();
-    $('#reportsSection').hide();
-
-});
-
-$('#studentsBtn').click(function(){
-
-    $('.sidebarBtns').removeClass('active');
-    $(this).addClass('active');
-
-    $('#dashboardSection').hide();
-    $('#assignmentSection').hide();
-    $('#submissionSection').hide();
-    $('#studentsSection').show();
-    $('#calendarSection').hide();
-    $('#reportsSection').hide();
-
-});
-
-$('#calendarBtn').click(function(){
-
-    $('.sidebarBtns').removeClass('active');
-    $(this).addClass('active');
-
-    $('#dashboardSection').hide();
-    $('#assignmentSection').hide();
-    $('#submissionSection').hide();
-    $('#studentsSection').hide();
-    $('#calendarSection').show();
-    $('#reportsSection').hide();
-
-});
-
-$('#reportsBtn').click(function(){
-
-    $('.sidebarBtns').removeClass('active');
-    $(this).addClass('active');
-
-    $('#dashboardSection').hide();
-    $('#assignmentSection').hide();
-    $('#submissionSection').hide();
-    $('#studentsSection').hide();
-    $('#calendarSection').hide();
-    $('#reportsSection').show();
-
-});
-
 // const TODAY_DATE = getCreatedDate()
 // console.log(TODAY_DATE.getDate());
 
@@ -175,7 +119,7 @@ function renderAssignments(VALUES){
     
     VALUES.forEach(assignment => {
         $('.card-cont').append(`
-<div class="card assignmentCard shadow border-0 m-2">
+<div class="card assignmentCard mb-5 shadow border-0 m-2">
     
     <div class="card-header bg-white border-0">
         <div class="d-flex justify-content-between align-items-center">
